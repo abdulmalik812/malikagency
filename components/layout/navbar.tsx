@@ -64,7 +64,7 @@ export function Navbar() {
             >
               {/* Minimal M icon */}
               <svg width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true">
-                <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <span className="font-semibold text-[15px] tracking-[-0.02em] text-white/90">
@@ -161,7 +161,7 @@ export function Navbar() {
                     style={{ background: "linear-gradient(135deg, #0a84ff 0%, #5e5ce6 100%)" }}
                   >
                     <svg width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true">
-                      <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <span className="font-semibold text-[15px] tracking-[-0.02em] text-white/90">Malik</span>

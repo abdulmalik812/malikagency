@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/ui/icons";
 
@@ -61,18 +62,15 @@ export function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 mb-5 group" aria-label="Malik Agencies">
-              <div
-                className="w-7 h-7 rounded-[8px] flex items-center justify-center group-hover:opacity-90 transition-opacity"
-                style={{ background: "linear-gradient(135deg, #0a84ff 0%, #5e5ce6 100%)" }}
-              >
-                <svg width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true">
-                  <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <span className="font-semibold text-[15px] tracking-[-0.02em] text-white/90">
-                Malik Agencies
-              </span>
+            <Link href="/" className="inline-flex items-center mb-5 group" aria-label="Malik Agencies">
+              <Image
+                src="/footer_logo.png"
+                alt="Malik Agencies"
+                width={160}
+                height={48}
+                className="object-contain group-hover:opacity-90 transition-opacity"
+                priority
+              />
             </Link>
             <p className="text-white/40 text-[13px] leading-relaxed max-w-[260px] mb-6">
               We build world-class software for ambitious businesses — from MVPs to enterprise platforms.
