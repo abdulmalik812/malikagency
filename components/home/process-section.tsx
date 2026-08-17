@@ -8,25 +8,25 @@ const steps = [
     number: "01",
     title: "Discovery Call",
     description:
-      "We start with a focused 30-minute call to understand your vision, goals, existing tech, and constraints. No jargon, no sales pitch.",
+      "A focused 30-minute conversation to understand your vision, goals, and constraints. No jargon, no sales pitch — just honest exploration.",
   },
   {
     number: "02",
     title: "Proposal & Scoping",
     description:
-      "We send a detailed proposal covering scope, timeline, tech stack, and pricing. Clear milestones, no surprises.",
+      "A detailed proposal covering scope, timeline, tech stack, and pricing. Clear milestones, no surprises on either side.",
   },
   {
     number: "03",
     title: "Design & Architecture",
     description:
-      "We map out the system architecture and design the UI before writing a line of code — saving costly changes later.",
+      "We map out system architecture and design the UI before writing a single line of code — preventing costly changes later.",
   },
   {
     number: "04",
     title: "Build & Iterate",
     description:
-      "Agile sprints with weekly demos. You see real progress every week and can give feedback continuously.",
+      "Agile sprints with weekly demos. You see real progress every week and guide direction with continuous feedback.",
   },
   {
     number: "05",
@@ -39,79 +39,62 @@ const steps = [
 export function ProcessSection() {
   return (
     <section
-      className="section-padding bg-[#0d0d0d]"
+      className="section"
+      style={{ background: "linear-gradient(180deg, #000 0%, #080808 100%)" }}
       aria-labelledby="process-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-16">
-          <p className="text-[#10b981] text-sm font-semibold uppercase tracking-widest mb-3">
-            How We Work
-          </p>
+      <div className="container-apple">
+        <ScrollReveal className="text-center mb-20">
+          <p className="label-sm mb-3">How We Work</p>
           <h2
             id="process-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f5f5] mb-4"
+            className="display-md text-white mb-5"
           >
-            Our process, simplified.
+            A process built
+            <br />
+            <span className="text-gradient-white">for clarity.</span>
           </h2>
-          <p className="text-[#a1a1a1] text-lg max-w-xl mx-auto">
-            A structured, transparent process that delivers on time and on budget.
+          <p className="body-lg max-w-md mx-auto">
+            Transparent, structured, and collaborative — at every step.
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="relative">
-          {/* Vertical connector line (desktop) */}
-          <div
-            className="hidden lg:block absolute left-[calc(50%-1px)] top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-[#2a2a2a] to-transparent"
-            aria-hidden="true"
-          />
+        <StaggerContainer>
+          <div className="space-y-4">
+            {steps.map(({ number, title, description }, idx) => (
+              <motion.div
+                key={number}
+                variants={staggerItem}
+                className="glass-card p-7 flex items-start gap-7 group hover:border-white/[0.12]"
+              >
+                {/* Step number */}
+                <div className="shrink-0 pt-0.5">
+                  <span className="step-number">{number}</span>
+                </div>
 
-          <div className="space-y-6 lg:space-y-0">
-            {steps.map(({ number, title, description }, idx) => {
-              const isEven = idx % 2 === 0;
-              return (
-                <motion.div
-                  key={number}
-                  variants={staggerItem}
-                  className={`lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center ${
-                    idx > 0 ? "lg:-mt-2" : ""
-                  }`}
-                >
-                  {/* Content */}
-                  <div
-                    className={`card-surface p-7 relative ${
-                      isEven ? "lg:col-start-1" : "lg:col-start-2 lg:row-start-1"
-                    }`}
-                  >
-                    <div className="flex items-start gap-5">
-                      <div className="shrink-0">
-                        <span
-                          className="text-4xl font-black text-accent-gradient leading-none"
-                          aria-hidden="true"
-                        >
-                          {number}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="text-[#f5f5f5] font-bold text-xl mb-2">
-                          {title}
-                        </h3>
-                        <p className="text-[#a1a1a1] leading-relaxed">{description}</p>
-                      </div>
-                    </div>
-                  </div>
+                {/* Separator */}
+                <div
+                  className="shrink-0 w-px self-stretch mt-1.5 mb-1.5"
+                  style={{ background: "rgba(255,255,255,0.06)" }}
+                  aria-hidden="true"
+                />
 
-                  {/* Center dot (desktop only) */}
-                  <div
-                    className={`hidden lg:flex items-center justify-center ${
-                      isEven ? "lg:col-start-2" : "lg:col-start-1"
-                    } lg:row-start-1`}
-                    aria-hidden="true"
-                  >
-                    <div className="w-4 h-4 rounded-full bg-[#10b981] ring-4 ring-[#10b981]/20 ring-offset-2 ring-offset-[#0d0d0d]" />
-                  </div>
-                </motion.div>
-              );
-            })}
+                {/* Content */}
+                <div>
+                  <h3 className="text-white font-semibold text-[18px] tracking-[-0.02em] mb-2">
+                    {title}
+                  </h3>
+                  <p className="text-white/50 text-[14px] leading-relaxed max-w-xl">
+                    {description}
+                  </p>
+                </div>
+
+                {/* Right accent dot */}
+                <div className="ml-auto shrink-0 self-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">
+                  <div className="w-2 h-2 rounded-full bg-[#0a84ff]" />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </StaggerContainer>
       </div>

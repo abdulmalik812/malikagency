@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -21,7 +21,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -30,7 +30,6 @@ export function Navbar() {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Prevent scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -40,15 +39,15 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#2a2a2a]"
+            ? "glass-strong border-b border-white/[0.06]"
             : "bg-transparent"
         )}
         role="banner"
       >
         <nav
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+          className="max-w-[1080px] mx-auto px-6 md:px-10 h-[52px] flex items-center justify-between"
           aria-label="Main navigation"
         >
           {/* Logo */}
@@ -57,16 +56,24 @@ export function Navbar() {
             className="flex items-center gap-2 group"
             aria-label="Malik Agencies — Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-[#10b981] flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-              <Zap className="w-4 h-4 text-white" aria-hidden="true" />
+            {/* Apple-style logotype */}
+            <div className="w-7 h-7 rounded-[8px] flex items-center justify-center overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, #0a84ff 0%, #5e5ce6 100%)",
+              }}
+            >
+              {/* Minimal M icon */}
+              <svg width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true">
+                <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
-            <span className="font-bold text-lg text-[#f5f5f5] tracking-tight">
-              Malik<span className="text-[#10b981]">.</span>
+            <span className="font-semibold text-[15px] tracking-[-0.02em] text-white/90">
+              Malik
             </span>
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-1" role="list">
+          <ul className="hidden md:flex items-center gap-0.5" role="list">
             {navLinks.map(({ href, label }) => {
               const isActive = pathname === href;
               return (
@@ -74,14 +81,21 @@ export function Navbar() {
                   <Link
                     href={href}
                     className={cn(
-                      "px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200",
+                      "relative px-3.5 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200",
                       isActive
-                        ? "text-[#10b981] bg-[#10b981]/10"
-                        : "text-[#a1a1a1] hover:text-[#f5f5f5] hover:bg-[#1a1a1a]"
+                        ? "text-white"
+                        : "text-white/60 hover:text-white/90"
                     )}
                     aria-current={isActive ? "page" : undefined}
                   >
-                    {label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-active"
+                        className="absolute inset-0 rounded-lg bg-white/[0.08]"
+                        transition={{ type: "spring", damping: 30, stiffness: 350 }}
+                      />
+                    )}
+                    <span className="relative z-10">{label}</span>
                   </Link>
                 </li>
               );
@@ -89,24 +103,28 @@ export function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link href="/contact" className="btn-primary text-sm py-2 px-5">
-              Start a Project
+          <div className="hidden md:flex items-center">
+            <Link
+              href="/contact"
+              className="btn-apple !py-2 !px-5 !text-[13px]"
+              aria-label="Start a project"
+            >
+              Get in Touch
             </Link>
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-[#2a2a2a] text-[#a1a1a1] hover:text-[#f5f5f5] hover:border-[#10b981] transition-colors"
+            className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             {menuOpen ? (
-              <X className="w-5 h-5" aria-hidden="true" />
+              <X className="w-[18px] h-[18px]" aria-hidden="true" />
             ) : (
-              <Menu className="w-5 h-5" aria-hidden="true" />
+              <Menu className="w-[18px] h-[18px]" aria-hidden="true" />
             )}
           </button>
         </nav>
@@ -121,7 +139,8 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm md:hidden"
               onClick={() => setMenuOpen(false)}
               aria-hidden="true"
             />
@@ -129,52 +148,58 @@ export function Navbar() {
             {/* Menu panel */}
             <motion.div
               id="mobile-menu"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-[#141414] border-l border-[#2a2a2a] md:hidden flex flex-col"
+              initial={{ opacity: 0, y: -12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.96 }}
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              className="fixed top-3 left-3 right-3 z-50 rounded-2xl glass-strong md:hidden overflow-hidden"
+              style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.6)" }}
             >
-              <div className="flex items-center justify-between p-4 border-b border-[#2a2a2a]">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
                 <Link href="/" className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-[#10b981] flex items-center justify-center">
-                    <Zap className="w-4 h-4 text-white" aria-hidden="true" />
+                  <div className="w-7 h-7 rounded-[8px] flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, #0a84ff 0%, #5e5ce6 100%)" }}
+                  >
+                    <svg width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true">
+                      <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
-                  <span className="font-bold text-lg text-[#f5f5f5]">
-                    Malik<span className="text-[#10b981]">.</span>
-                  </span>
+                  <span className="font-semibold text-[15px] tracking-[-0.02em] text-white/90">Malik</span>
                 </Link>
                 <button
                   onClick={() => setMenuOpen(false)}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg text-[#a1a1a1] hover:text-[#f5f5f5]"
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white/[0.06] text-white/60 hover:text-white transition-colors"
                   aria-label="Close menu"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
 
-              <nav className="flex-1 p-4" aria-label="Mobile navigation">
-                <ul className="space-y-1" role="list">
+              <nav className="p-3" aria-label="Mobile navigation">
+                <ul className="space-y-0.5" role="list">
                   {navLinks.map(({ href, label }, i) => {
                     const isActive = pathname === href;
                     return (
                       <motion.li
                         key={href}
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: -8 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.05 }}
+                        transition={{ delay: i * 0.04 }}
                       >
                         <Link
                           href={href}
                           className={cn(
-                            "flex items-center px-4 py-3 rounded-xl text-base font-medium transition-colors",
+                            "flex items-center px-4 py-3 rounded-xl text-[15px] font-medium transition-all duration-200",
                             isActive
-                              ? "text-[#10b981] bg-[#10b981]/10"
-                              : "text-[#a1a1a1] hover:text-[#f5f5f5] hover:bg-[#1a1a1a]"
+                              ? "text-white bg-white/[0.08]"
+                              : "text-white/60 hover:text-white hover:bg-white/[0.04]"
                           )}
                           aria-current={isActive ? "page" : undefined}
                         >
                           {label}
+                          {isActive && (
+                            <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#0a84ff]" />
+                          )}
                         </Link>
                       </motion.li>
                     );
@@ -182,9 +207,12 @@ export function Navbar() {
                 </ul>
               </nav>
 
-              <div className="p-4 border-t border-[#2a2a2a]">
-                <Link href="/contact" className="btn-primary w-full justify-center">
-                  Start a Project
+              <div className="p-4 border-t border-white/[0.06]">
+                <Link
+                  href="/contact"
+                  className="btn-apple w-full !justify-center"
+                >
+                  Get in Touch
                 </Link>
               </div>
             </motion.div>

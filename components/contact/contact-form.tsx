@@ -31,14 +31,16 @@ const budgetRanges = [
   "Let's discuss",
 ];
 
-const inputClasses = cn(
-  "w-full px-4 py-3 rounded-xl border border-[#2a2a2a] bg-[#141414]",
-  "text-[#f5f5f5] placeholder-[#4a4a4a] text-sm",
-  "transition-colors duration-200",
-  "focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981]/50"
-);
+/* Shared Apple-style input classes */
+const inputBase = [
+  "w-full px-4 py-3 rounded-[12px] text-[14px]",
+  "text-white/85 placeholder-white/25",
+  "transition-all duration-200 outline-none appearance-none",
+  "bg-white/[0.03] border border-white/[0.07]",
+  "focus:border-[#0a84ff]/60 focus:ring-2 focus:ring-[#0a84ff]/10 focus:bg-white/[0.05]",
+].join(" ");
 
-const labelClasses = "block text-sm font-medium text-[#a1a1a1] mb-1.5";
+const labelBase = "block text-[12px] font-medium text-white/45 uppercase tracking-[0.08em] mb-2";
 
 export function ContactForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -81,20 +83,35 @@ export function ContactForm() {
     }
   }
 
+  /* ── Success state ── */
   if (status === "success") {
     return (
-      <div className="card-surface p-10 text-center">
-        <div className="w-16 h-16 rounded-full bg-[#10b981]/10 border border-[#10b981]/30 flex items-center justify-center mx-auto mb-5">
-          <CheckCircle2 className="w-8 h-8 text-[#10b981]" aria-hidden="true" />
+      <div
+        className="rounded-[20px] p-12 text-center"
+        style={{
+          background: "rgba(48,209,88,0.04)",
+          border: "1px solid rgba(48,209,88,0.15)",
+        }}
+      >
+        <div
+          className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
+          style={{
+            background: "rgba(48,209,88,0.1)",
+            border: "1px solid rgba(48,209,88,0.25)",
+          }}
+        >
+          <CheckCircle2 className="w-8 h-8" style={{ color: "#30d158" }} aria-hidden="true" />
         </div>
-        <h3 className="text-[#f5f5f5] font-bold text-xl mb-3">Message sent!</h3>
-        <p className="text-[#a1a1a1] leading-relaxed mb-6">
-          Thanks for reaching out. We&apos;ll review your project and get back to you within
-          one business day.
+        <h3 className="text-white font-semibold text-[20px] tracking-[-0.02em] mb-3">
+          Message sent!
+        </h3>
+        <p className="text-white/50 text-[14px] leading-relaxed mb-8 max-w-sm mx-auto">
+          Thanks for reaching out. We&apos;ll review your project and get back
+          to you within one business day.
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="btn-outline text-sm"
+          className="btn-ghost !py-2.5 !px-6 !text-[13px]"
         >
           Send another message
         </button>
@@ -102,6 +119,7 @@ export function ContactForm() {
     );
   }
 
+  /* ── Form ── */
   return (
     <form
       ref={formRef}
@@ -113,8 +131,8 @@ export function ContactForm() {
       {/* Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-name" className={labelClasses}>
-            Name <span className="text-[#10b981]" aria-hidden="true">*</span>
+          <label htmlFor="contact-name" className={labelBase}>
+            Name <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
           </label>
           <input
             id="contact-name"
@@ -124,13 +142,13 @@ export function ContactForm() {
             required
             minLength={2}
             placeholder="Abdul Malik"
-            className={inputClasses}
+            className={inputBase}
             aria-required="true"
           />
         </div>
         <div>
-          <label htmlFor="contact-email" className={labelClasses}>
-            Email <span className="text-[#10b981]" aria-hidden="true">*</span>
+          <label htmlFor="contact-email" className={labelBase}>
+            Email <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
           </label>
           <input
             id="contact-email"
@@ -139,7 +157,7 @@ export function ContactForm() {
             autoComplete="email"
             required
             placeholder="you@company.com"
-            className={inputClasses}
+            className={inputBase}
             aria-required="true"
           />
         </div>
@@ -148,42 +166,38 @@ export function ContactForm() {
       {/* Project type + Budget */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-project-type" className={labelClasses}>
-            Project Type <span className="text-[#10b981]" aria-hidden="true">*</span>
+          <label htmlFor="contact-project-type" className={labelBase}>
+            Project Type <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
           </label>
           <select
             id="contact-project-type"
             name="projectType"
             required
             defaultValue=""
-            className={cn(inputClasses, "cursor-pointer appearance-none")}
+            className={cn(inputBase, "cursor-pointer")}
             aria-required="true"
+            style={{ colorScheme: "dark" }}
           >
-            <option value="" disabled>
-              Select a type…
-            </option>
+            <option value="" disabled>Select a type…</option>
             {projectTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
+              <option key={type} value={type}>{type}</option>
             ))}
           </select>
         </div>
         <div>
-          <label htmlFor="contact-budget" className={labelClasses}>
+          <label htmlFor="contact-budget" className={labelBase}>
             Budget Range
           </label>
           <select
             id="contact-budget"
             name="budget"
             defaultValue=""
-            className={cn(inputClasses, "cursor-pointer appearance-none")}
+            className={cn(inputBase, "cursor-pointer")}
+            style={{ colorScheme: "dark" }}
           >
             <option value="">Select a range…</option>
             {budgetRanges.map((range) => (
-              <option key={range} value={range}>
-                {range}
-              </option>
+              <option key={range} value={range}>{range}</option>
             ))}
           </select>
         </div>
@@ -191,8 +205,8 @@ export function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="contact-message" className={labelClasses}>
-          Message <span className="text-[#10b981]" aria-hidden="true">*</span>
+        <label htmlFor="contact-message" className={labelBase}>
+          Message <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
         </label>
         <textarea
           id="contact-message"
@@ -201,7 +215,7 @@ export function ContactForm() {
           rows={6}
           minLength={20}
           placeholder="Tell us about your project — what you're building, your goals, and any constraints we should know about…"
-          className={cn(inputClasses, "resize-none")}
+          className={cn(inputBase, "resize-none")}
           aria-required="true"
         />
       </div>
@@ -209,12 +223,16 @@ export function ContactForm() {
       {/* Error */}
       {status === "error" && (
         <div
-          className="flex items-center gap-3 p-4 rounded-xl border border-red-500/30 bg-red-500/10"
+          className="flex items-center gap-3 p-4 rounded-[14px]"
+          style={{
+            background: "rgba(255,69,58,0.06)",
+            border: "1px solid rgba(255,69,58,0.2)",
+          }}
           role="alert"
           aria-live="assertive"
         >
-          <AlertCircle className="w-5 h-5 text-red-400 shrink-0" aria-hidden="true" />
-          <p className="text-red-400 text-sm">{errorMsg}</p>
+          <AlertCircle className="w-4 h-4 shrink-0" style={{ color: "#ff453a" }} aria-hidden="true" />
+          <p className="text-[13px]" style={{ color: "#ff453a" }}>{errorMsg}</p>
         </div>
       )}
 
@@ -222,7 +240,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="btn-primary w-full justify-center text-base py-3.5 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="btn-apple w-full !justify-center disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Send your project inquiry"
       >
         {status === "loading" ? (
@@ -238,7 +256,7 @@ export function ContactForm() {
         )}
       </button>
 
-      <p className="text-xs text-[#4a4a4a] text-center">
+      <p className="text-[11px] text-white/25 text-center">
         We&apos;ll never share your information. No spam, ever.
       </p>
     </form>

@@ -7,57 +7,87 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 export function CTASection() {
   return (
     <section
-      className="section-padding bg-[#0a0a0a]"
+      className="section"
+      style={{ background: "#000" }}
       aria-labelledby="cta-heading"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="container-apple">
         <ScrollReveal>
           <div
-            className="relative overflow-hidden rounded-2xl border border-[#10b981]/20 p-12 sm:p-16"
+            className="relative overflow-hidden rounded-[28px] p-14 sm:p-20 text-center"
             style={{
-              background: "radial-gradient(ellipse 100% 80% at 50% 0%, rgba(16,185,129,0.1) 0%, transparent 70%), #141414",
+              background: "linear-gradient(145deg, rgba(10,132,255,0.08) 0%, rgba(94,92,230,0.06) 50%, rgba(191,90,242,0.04) 100%), rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.08)",
             }}
           >
-            {/* Decorative corners */}
-            <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-[#10b981]/30 rounded-tl-2xl" aria-hidden="true" />
-            <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-[#10b981]/30 rounded-br-2xl" aria-hidden="true" />
+            {/* Ambient orb */}
+            <div
+              className="absolute pointer-events-none"
+              aria-hidden="true"
+              style={{
+                top: "-50%",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "80%",
+                height: "200%",
+                background: "radial-gradient(ellipse at 50% 20%, rgba(10,132,255,0.1) 0%, rgba(94,92,230,0.06) 30%, transparent 65%)",
+                filter: "blur(24px)",
+              }}
+            />
 
-            <p className="text-[#10b981] text-sm font-semibold uppercase tracking-widest mb-4">
-              Ready to Start?
-            </p>
+            {/* Corner hairlines */}
+            <div
+              className="absolute top-0 left-0 w-20 h-20 rounded-tl-[28px] pointer-events-none"
+              aria-hidden="true"
+              style={{
+                borderTop: "1px solid rgba(10,132,255,0.3)",
+                borderLeft: "1px solid rgba(10,132,255,0.3)",
+              }}
+            />
+            <div
+              className="absolute bottom-0 right-0 w-20 h-20 rounded-br-[28px] pointer-events-none"
+              aria-hidden="true"
+              style={{
+                borderBottom: "1px solid rgba(10,132,255,0.3)",
+                borderRight: "1px solid rgba(10,132,255,0.3)",
+              }}
+            />
 
-            <h2
-              id="cta-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f5f5] mb-5"
-              style={{ lineHeight: 1.15 }}
-            >
-              Let&apos;s build something
-              <br />
-              <span className="text-accent-gradient">extraordinary together.</span>
-            </h2>
+            <div className="relative z-10">
+              <p className="label-sm mb-4">Ready to Start?</p>
 
-            <p className="text-[#a1a1a1] text-lg max-w-lg mx-auto mb-10 leading-relaxed">
-              Book a free 30-minute discovery call. We&apos;ll listen to your idea, ask the
-              right questions, and tell you honestly what it takes.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/contact"
-                className="btn-primary text-base px-8 py-3.5"
-                aria-label="Start your project with Malik Agencies"
+              <h2
+                id="cta-heading"
+                className="display-lg text-white mb-5"
               >
-                Start a Project
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
-              <a
-                href="mailto:hello@malikagencies.com"
-                className="btn-outline text-base px-8 py-3.5"
-                aria-label="Send us an email"
-              >
-                <Calendar className="w-4 h-4" aria-hidden="true" />
-                Book a Call
-              </a>
+                Let&apos;s build something
+                <br />
+                <span className="text-gradient-apple">extraordinary.</span>
+              </h2>
+
+              <p className="body-lg max-w-md mx-auto mb-10">
+                Book a free 30-minute discovery call. We&apos;ll listen, ask
+                the right questions, and tell you honestly what it takes.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <Link
+                  href="/contact"
+                  className="btn-apple"
+                  aria-label="Start your project"
+                >
+                  Start a Project
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+                <a
+                  href="mailto:hello@malikagencies.com"
+                  className="btn-ghost"
+                  aria-label="Book a discovery call"
+                >
+                  <Calendar className="w-4 h-4" aria-hidden="true" />
+                  Book a Call
+                </a>
+              </div>
             </div>
           </div>
         </ScrollReveal>

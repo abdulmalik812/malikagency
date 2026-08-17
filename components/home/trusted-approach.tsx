@@ -9,65 +9,84 @@ const values = [
     icon: ShieldCheck,
     title: "Quality Without Compromise",
     description:
-      "Every line of code is written to production standards. We follow best practices in architecture, security, and performance by default — not as an afterthought.",
+      "Every line of code is written to production standards. Security, performance, and architecture best practices — by default, not afterthought.",
+    color: "#0a84ff",
   },
   {
     icon: Clock,
     title: "Delivery You Can Count On",
     description:
-      "We set realistic timelines and hit them. Weekly demos, clear milestones, and proactive communication mean no surprises at the end.",
+      "We set realistic timelines and hit them. Weekly demos, clear milestones, and proactive communication mean no surprises.",
+    color: "#30d158",
   },
   {
     icon: Lightbulb,
     title: "Strategic Partnership",
     description:
-      "We don&apos;t just take requirements — we challenge assumptions, suggest better approaches, and think about your business goals, not just the spec.",
+      "We challenge assumptions, suggest better approaches, and think about your business outcomes — not just the spec on paper.",
+    color: "#ff9f0a",
   },
   {
     icon: Headphones,
     title: "Long-Term Support",
     description:
-      "We&apos;re available after launch. Retainer maintenance, feature iterations, and dedicated support — we stay invested in your success.",
+      "Retainer maintenance, feature iterations, and dedicated support after launch. We stay invested in your success.",
+    color: "#bf5af2",
   },
 ];
 
 export function TrustedApproach() {
   return (
     <section
-      className="section-padding"
-      style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 100%)" }}
+      className="section"
+      style={{ background: "#000" }}
       aria-labelledby="approach-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-apple">
         <ScrollReveal className="text-center mb-16">
-          <p className="text-[#10b981] text-sm font-semibold uppercase tracking-widest mb-3">
-            Our Approach
-          </p>
+          <p className="label-sm mb-3">Our Approach</p>
           <h2
             id="approach-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f5f5] mb-4"
+            className="display-md text-white mb-5"
           >
-            Built on principles
+            Principles that
             <br />
-            <span className="text-gradient">that matter.</span>
+            <span className="text-gradient-apple">guide every project.</span>
           </h2>
-          <p className="text-[#a1a1a1] text-lg max-w-xl mx-auto">
-            The values that guide every project we take on.
+          <p className="body-lg max-w-md mx-auto">
+            The values behind every engagement we take on.
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {values.map(({ icon: Icon, title, description }) => (
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {values.map(({ icon: Icon, title, description, color }) => (
             <motion.div
               key={title}
               variants={staggerItem}
-              className="card-surface card-hover p-6 group"
+              className="glass-card p-7 group relative overflow-hidden"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#10b981]/10 flex items-center justify-center mb-5 group-hover:bg-[#10b981]/20 transition-colors duration-300">
-                <Icon className="w-5 h-5 text-[#10b981]" aria-hidden="true" />
+              {/* Hover glow */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[20px]"
+                style={{
+                  background: `radial-gradient(ellipse 50% 50% at 0% 100%, ${color}10, transparent 65%)`,
+                }}
+                aria-hidden="true"
+              />
+
+              {/* Icon */}
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 relative z-10"
+                style={{ background: `${color}14`, border: `1px solid ${color}22` }}
+              >
+                <Icon className="w-5 h-5" style={{ color }} aria-hidden="true" />
               </div>
-              <h3 className="text-[#f5f5f5] font-bold text-base mb-3">{title}</h3>
-              <p className="text-[#a1a1a1] text-sm leading-relaxed"
+
+              <h3 className="text-white font-semibold text-[17px] tracking-[-0.02em] mb-3 relative z-10">
+                {title}
+              </h3>
+              <p
+                className="text-white/50 text-[13.5px] leading-relaxed relative z-10"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </motion.div>

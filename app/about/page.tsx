@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Target, Users, Lightbulb, Heart } from "lucide-react";
-import { ScrollReveal, StaggerContainer } from "@/components/ui/scroll-reveal";
+import { ScrollReveal, StaggerContainer, staggerItem } from "@/components/ui/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,165 +16,151 @@ const values = [
     title: "Outcome-Driven",
     description:
       "We measure success by what your software achieves, not just whether it was delivered. Every decision is tied back to your business goals.",
+    color: "#0a84ff",
   },
   {
     icon: Users,
     title: "Collaborative",
     description:
-      "We treat every project as a partnership. You have full visibility, weekly updates, and a direct line to the engineers building your product.",
+      "We treat every project as a partnership. Full visibility, weekly updates, and a direct line to the engineers building your product.",
+    color: "#30d158",
   },
   {
     icon: Lightbulb,
     title: "Thoughtful Craft",
     description:
       "We care deeply about the details — clean architecture, readable code, intuitive UX. What we build today should be maintainable for years.",
+    color: "#ff9f0a",
   },
   {
     icon: Heart,
     title: "People First",
     description:
-      "We only take on projects we believe in, work with clients we respect, and take care of the humans on both sides of the project.",
+      "We only take on projects we believe in, work with clients we respect, and take care of the humans on both sides of the engagement.",
+    color: "#bf5af2",
   },
 ];
+
+const stats = [
+  { label: "Founded", value: "2023" },
+  { label: "Projects Shipped", value: "50+" },
+  { label: "Countries Served", value: "8" },
+  { label: "Client Retention", value: "94%" },
+];
+
+const skills = ["Next.js", "TypeScript", "Python", "System Design", "AI/ML", "React Native"];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-32 pb-16 gradient-mesh">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Hero ── */}
+      <section
+        className="relative pt-32 pb-20 overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(10,132,255,0.08) 0%, transparent 60%), #000",
+        }}
+      >
+        <div className="container-apple">
           <ScrollReveal>
-            <p className="text-[#10b981] text-sm font-semibold uppercase tracking-widest mb-4">
-              About Us
-            </p>
-            <h1
-              className="font-bold text-[#f5f5f5] mb-5 max-w-3xl"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", lineHeight: 1.15 }}
-            >
+            <p className="label-sm mb-4">About Us</p>
+            <h1 className="display-lg text-white mb-5 max-w-2xl">
               Software built with
               <br />
-              <span className="text-accent-gradient">purpose and precision.</span>
+              <span className="text-gradient-apple">purpose and precision.</span>
             </h1>
-            <p className="text-[#a1a1a1] text-lg max-w-2xl leading-relaxed">
-              We&apos;re a small, senior team that cares deeply about the software we ship.
-              No bloated teams, no junior hand-offs — just experienced engineers who take ownership.
+            <p className="body-lg max-w-xl">
+              We&apos;re a small, senior team that cares deeply about the software
+              we ship. No bloated teams, no junior hand-offs — just experienced
+              engineers who take ownership.
             </p>
           </ScrollReveal>
         </div>
+        <div
+          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+          style={{ background: "linear-gradient(to top, #000, transparent)" }}
+          aria-hidden="true"
+        />
       </section>
 
-      {/* Story */}
-      <section className="section-padding bg-[#0a0a0a]" aria-labelledby="story-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Story ── */}
+      <section
+        className="section"
+        style={{ background: "#000" }}
+        aria-labelledby="story-heading"
+      >
+        <div className="container-apple">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <ScrollReveal direction="left">
-              <p className="text-[#10b981] text-sm font-semibold uppercase tracking-widest mb-3">
-                Our Story
-              </p>
+            {/* Text */}
+            <ScrollReveal>
+              <p className="label-sm mb-3">Our Story</p>
               <h2
                 id="story-heading"
-                className="text-3xl sm:text-4xl font-bold text-[#f5f5f5] mb-6"
+                className="display-md text-white mb-6"
               >
                 Built from frustration.
                 <br />
-                <span className="text-gradient">Driven by standards.</span>
+                <span className="text-gradient-white">Driven by standards.</span>
               </h2>
-              <div className="space-y-4 text-[#a1a1a1] leading-relaxed">
+              <div className="space-y-4 text-white/55 text-[15px] leading-relaxed">
                 <p>
-                  Malik Agencies was founded after watching too many businesses get burned by
-                  agencies that over-promised and under-delivered — spaghetti code, missed deadlines,
-                  and software that crumbled at scale.
+                  Malik Agencies was founded after watching too many businesses
+                  get burned by agencies that over-promised and under-delivered —
+                  spaghetti code, missed deadlines, and software that crumbled at scale.
                 </p>
                 <p>
-                  We started with a simple belief: software agencies should be held to the same
-                  standard as the software they build. That means clean architecture, honest timelines,
-                  transparent communication, and code that&apos;s actually maintainable.
+                  We started with a simple belief: software agencies should be
+                  held to the same standard as the software they build. Clean
+                  architecture, honest timelines, transparent communication, and
+                  code that&apos;s actually maintainable.
                 </p>
                 <p>
-                  Today, we work with startups and growing businesses across e-commerce, fintech,
-                  logistics, and SaaS — helping them build software that becomes a competitive
-                  advantage, not a liability.
+                  Today, we work with startups and growing businesses across
+                  e-commerce, fintech, logistics, and SaaS — helping them build
+                  software that becomes a competitive advantage, not a liability.
                 </p>
               </div>
             </ScrollReveal>
 
-            {/* Story visual */}
-            <ScrollReveal direction="right" delay={0.1}>
-              <div className="relative">
+            {/* Stats grid */}
+            <ScrollReveal delay={0.12}>
+              <div
+                className="relative rounded-[24px] p-8 overflow-hidden"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(10,132,255,0.06) 0%, rgba(94,92,230,0.04) 100%), rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                {/* Glow */}
                 <div
-                  className="card-surface p-8 relative overflow-hidden"
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(10,132,255,0.08), transparent 65%)",
+                  }}
                   aria-hidden="true"
-                >
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.08) 0%, transparent 70%)",
-                    }}
-                  />
-                  {/* Stats grid */}
-                  <div className="relative grid grid-cols-2 gap-6">
-                    {[
-                      { label: "Founded", value: "2023" },
-                      { label: "Projects Shipped", value: "50+" },
-                      { label: "Countries Served", value: "8" },
-                      { label: "Client Retention", value: "94%" },
-                    ].map(({ label, value }) => (
-                      <div key={label} className="text-center p-4 rounded-xl bg-[#1a1a1a] border border-[#2a2a2a]">
-                        <div className="text-3xl font-black text-accent-gradient mb-1">{value}</div>
-                        <div className="text-[#a1a1a1] text-sm">{label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder */}
-      <section className="section-padding bg-[#0d0d0d] border-t border-[#2a2a2a]" aria-labelledby="founder-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <p className="text-[#10b981] text-sm font-semibold uppercase tracking-widest mb-3">
-              The Team
-            </p>
-            <h2
-              id="founder-heading"
-              className="text-3xl sm:text-4xl font-bold text-[#f5f5f5]"
-            >
-              The people behind the work.
-            </h2>
-          </ScrollReveal>
-
-          <div className="max-w-md mx-auto">
-            <ScrollReveal>
-              <div className="card-surface card-hover p-8 text-center">
-                {/* Avatar */}
-                <div
-                  className="w-24 h-24 rounded-2xl mx-auto mb-5 flex items-center justify-center text-3xl font-black text-white"
-                  style={{ background: "linear-gradient(135deg, #10b981, #059669)" }}
-                  aria-hidden="true"
-                >
-                  A
-                </div>
-                <h3 className="text-[#f5f5f5] font-bold text-xl mb-1">Abdul Malik</h3>
-                <p className="text-[#10b981] text-sm font-medium mb-4">
-                  Founder & Lead Engineer
-                </p>
-                <p className="text-[#a1a1a1] text-sm leading-relaxed mb-6">
-                  Full-stack engineer with a focus on scalable web architecture, API design, and
-                  AI integration. Passionate about building software that solves real problems
-                  with clean, maintainable code.
-                </p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {["Next.js", "TypeScript", "Python", "System Design", "AI/ML"].map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-xs px-3 py-1.5 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] text-[#a1a1a1]"
+                />
+                <div className="relative grid grid-cols-2 gap-4">
+                  {stats.map(({ label, value }) => (
+                    <div
+                      key={label}
+                      className="text-center p-5 rounded-[16px]"
+                      style={{
+                        background: "rgba(255,255,255,0.03)",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                      }}
                     >
-                      {skill}
-                    </span>
+                      <div
+                        className="text-4xl font-bold mb-1 text-white"
+                        style={{ letterSpacing: "-0.03em" }}
+                      >
+                        {value}
+                      </div>
+                      <div className="text-white/40 text-[12px] font-medium uppercase tracking-wide">
+                        {label}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -182,49 +169,150 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section-padding bg-[#0a0a0a] border-t border-[#2a2a2a]" aria-labelledby="values-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Founder ── */}
+      <section
+        className="section"
+        style={{ background: "#000", borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        aria-labelledby="founder-heading"
+      >
+        <div className="container-apple">
           <ScrollReveal className="text-center mb-16">
-            <p className="text-[#10b981] text-sm font-semibold uppercase tracking-widest mb-3">
-              Our Values
-            </p>
-            <h2
-              id="values-heading"
-              className="text-3xl sm:text-4xl font-bold text-[#f5f5f5]"
+            <p className="label-sm mb-3">The Team</p>
+            <h2 id="founder-heading" className="display-md text-white">
+              The person behind
+              <br />
+              <span className="text-gradient-white">the work.</span>
+            </h2>
+          </ScrollReveal>
+
+          {/* Founder card — Apple-style horizontal split */}
+          <ScrollReveal>
+            <div
+              className="max-w-3xl mx-auto rounded-[28px] overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(10,132,255,0.06) 0%, rgba(94,92,230,0.04) 50%, rgba(191,90,242,0.03) 100%), rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
             >
+              <div className="flex flex-col sm:flex-row">
+                {/* Photo */}
+                <div className="sm:w-56 shrink-0 relative overflow-hidden" style={{ minHeight: 240 }}>
+                  {/* Ambient glow behind photo */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse at 50% 80%, rgba(10,132,255,0.15), transparent 65%)",
+                    }}
+                    aria-hidden="true"
+                  />
+                  <Image
+                    src="/photo_founder.png"
+                    alt="Abdul Malik — Founder & Lead Engineer at Malik Agencies"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, 224px"
+                    priority
+                  />
+                </div>
+
+                {/* Info */}
+                <div className="flex-1 p-8 sm:p-10 flex flex-col justify-center">
+                  {/* Name + role */}
+                  <h3
+                    className="text-white font-semibold text-[22px] tracking-[-0.025em] mb-1"
+                  >
+                    Abdul Malik
+                  </h3>
+                  <p
+                    className="text-[13px] font-semibold uppercase tracking-[0.1em] mb-5"
+                    style={{ color: "#0a84ff" }}
+                  >
+                    Founder & Lead Engineer
+                  </p>
+
+                  <p className="text-white/55 text-[14px] leading-relaxed mb-7">
+                    Full-stack engineer with a focus on scalable web architecture,
+                    API design, and AI integration. Passionate about building
+                    software that solves real problems with clean, maintainable code.
+                  </p>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill) => (
+                      <span key={skill} className="chip">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── Values ── */}
+      <section
+        className="section"
+        style={{ background: "#000", borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        aria-labelledby="values-heading"
+      >
+        <div className="container-apple">
+          <ScrollReveal className="text-center mb-16">
+            <p className="label-sm mb-3">Our Values</p>
+            <h2 id="values-heading" className="display-md text-white">
               How we work.
             </h2>
           </ScrollReveal>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {values.map(({ icon: Icon, title, description }) => (
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {values.map(({ icon: Icon, title, description, color }) => (
               <div
                 key={title}
-                className="card-surface card-hover p-6 group"
+                className="glass-card p-7 group relative overflow-hidden"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#10b981]/10 flex items-center justify-center mb-5 group-hover:bg-[#10b981]/20 transition-colors duration-300">
-                  <Icon className="w-5 h-5 text-[#10b981]" aria-hidden="true" />
+                {/* Hover corner glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[20px]"
+                  style={{
+                    background: `radial-gradient(ellipse 50% 50% at 0% 100%, ${color}10, transparent 65%)`,
+                  }}
+                  aria-hidden="true"
+                />
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 relative z-10"
+                  style={{ background: `${color}14`, border: `1px solid ${color}22` }}
+                >
+                  <Icon className="w-5 h-5" style={{ color }} aria-hidden="true" />
                 </div>
-                <h3 className="text-[#f5f5f5] font-bold text-base mb-3">{title}</h3>
-                <p className="text-[#a1a1a1] text-sm leading-relaxed">{description}</p>
+                <h3 className="text-white font-semibold text-[17px] tracking-[-0.02em] mb-3 relative z-10">
+                  {title}
+                </h3>
+                <p className="text-white/50 text-[13.5px] leading-relaxed relative z-10">
+                  {description}
+                </p>
               </div>
             ))}
           </StaggerContainer>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding bg-[#0d0d0d] border-t border-[#2a2a2a]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ── CTA ── */}
+      <section
+        className="section"
+        style={{ background: "#000", borderTop: "1px solid rgba(255,255,255,0.05)" }}
+      >
+        <div className="container-apple text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#f5f5f5] mb-4">
+            <h2 className="display-md text-white mb-4">
               Ready to work together?
             </h2>
-            <p className="text-[#a1a1a1] text-lg mb-8">
+            <p className="body-lg max-w-sm mx-auto mb-10">
               Let&apos;s talk about your project.
             </p>
-            <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
+            <Link href="/contact" className="btn-apple">
               Get in Touch
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
