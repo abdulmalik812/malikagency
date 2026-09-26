@@ -82,7 +82,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-0.5" role="list">
+          <ul className="hidden lg:flex items-center gap-0.5" role="list">
             {navLinks.map(({ href, label }) => {
               const isActive = pathname === href;
               return (
@@ -112,7 +112,7 @@ export function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <Link
               href="/contact"
               className="btn-apple !py-2 !px-5 !text-[13px]"
@@ -124,7 +124,7 @@ export function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-colors"
+            className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -149,7 +149,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm lg:hidden"
               onClick={() => setMenuOpen(false)}
               aria-hidden="true"
             />
@@ -161,7 +161,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.96 }}
               transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              className="fixed top-3 left-3 right-3 z-50 rounded-2xl glass-strong md:hidden overflow-hidden"
+              className="fixed top-3 left-3 right-3 z-50 rounded-2xl glass-strong lg:hidden overflow-hidden"
               style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.6)" }}
             >
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
