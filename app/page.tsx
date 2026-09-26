@@ -7,9 +7,9 @@ import { TrustedApproach } from "@/components/home/trusted-approach";
 import { CTASection } from "@/components/home/cta-section";
 
 export const metadata: Metadata = {
-  title: "Malik Agencies — Software Development Agency",
+  title: "Malik Agencies — Software Studio",
   description:
-    "Malik Agencies builds world-class web apps, mobile applications, and AI-powered software for ambitious businesses. From idea to launch, we deliver.",
+    "Malik Agencies partners with teams to design, build, and evolve web, mobile, and custom software products.",
 };
 
 export default function HomePage() {

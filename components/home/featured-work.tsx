@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ScrollReveal, StaggerContainer, staggerItem } from "@/components/ui/scroll-reveal";
 
 const projects = [
@@ -77,44 +77,14 @@ export function FeaturedWork() {
 
         {/* Cards */}
         <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {projects.map(({ id, category, title, description, result, tech, color, bg, href }) => (
+          {projects.map(({ id, category, title, description, tech, color, href }) => (
             <motion.article
               key={id}
               variants={staggerItem}
               className="glass-card group relative flex flex-col overflow-hidden"
               aria-labelledby={`project-${id}-title`}
             >
-              {/* Visual band */}
-              <div
-                className={`h-36 w-full bg-gradient-to-br ${bg} relative overflow-hidden flex items-center justify-center`}
-                aria-hidden="true"
-              >
-                {/* Abstract accent shape */}
-                <div
-                  className="absolute"
-                  style={{
-                    inset: 0,
-                    background: `radial-gradient(ellipse 80% 80% at 50% 50%, ${color}18, transparent 70%)`,
-                  }}
-                />
-                <div
-                  className="relative w-14 h-14 rounded-2xl"
-                  style={{
-                    background: `${color}18`,
-                    border: `1px solid ${color}30`,
-                    backdropFilter: "blur(8px)",
-                  }}
-                />
-                {/* Corner shine */}
-                <div
-                  className="absolute top-0 right-0 w-32 h-32 opacity-20"
-                  style={{
-                    background: `radial-gradient(ellipse at 80% 20%, ${color}60, transparent 60%)`,
-                  }}
-                />
-              </div>
-
-              <div className="p-6 flex flex-col flex-1">
+              <div className="p-7 flex flex-col flex-1">
                 {/* Category */}
                 <span
                   className="text-[11px] font-600 uppercase tracking-[0.1em] mb-2.5 block"
@@ -133,21 +103,6 @@ export function FeaturedWork() {
                 <p className="text-white/50 text-[13px] leading-relaxed mb-5 flex-1">
                   {description}
                 </p>
-
-                {/* Result badge */}
-                <div
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl mb-4"
-                  style={{
-                    background: `${color}10`,
-                    border: `1px solid ${color}22`,
-                  }}
-                  aria-label={`Project outcome: ${result}`}
-                >
-                  <TrendingUp className="w-3.5 h-3.5 shrink-0" style={{ color }} aria-hidden="true" />
-                  <span className="text-[12px] font-semibold" style={{ color }}>
-                    {result}
-                  </span>
-                </div>
 
                 {/* Tech chips */}
                 <div className="flex flex-wrap gap-1.5 mb-5" role="list" aria-label="Technologies used">

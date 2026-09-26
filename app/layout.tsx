@@ -16,11 +16,11 @@ const siteUrl = "https://malikagencies.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Malik Agencies — Software Development Agency",
+    default: "Malik Agencies — Software Studio",
     template: "%s | Malik Agencies",
   },
   description:
-    "Malik Agencies builds world-class web apps, mobile applications, and AI-powered software for ambitious businesses. From idea to launch, we deliver.",
+    "Malik Agencies partners with teams to design, build, and evolve web, mobile, and custom software products.",
   keywords: [
     "software development agency",
     "web development",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Malik Agencies",
-    title: "Malik Agencies — Software Development Agency",
+    title: "Malik Agencies — Software Studio",
     description:
-      "We build world-class web apps, mobile applications, and AI-powered software for ambitious businesses.",
+      "We partner with teams to design, build, and evolve web, mobile, and custom software products.",
     images: [
       {
         url: `${siteUrl}/og-image.png`,
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Malik Agencies — Software Development Agency",
+    title: "Malik Agencies — Software Studio",
     description:
       "We build world-class web apps, mobile applications, and AI-powered software for ambitious businesses.",
     images: [`${siteUrl}/og-image.png`],

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function CTASection() {
@@ -14,10 +14,10 @@ export function CTASection() {
       <div className="container-apple">
         <ScrollReveal>
           <div
-            className="relative overflow-hidden rounded-[28px] p-14 sm:p-20 text-center"
+            className="agency-cta relative overflow-hidden rounded-[28px] p-14 sm:p-20 text-left"
             style={{
-              background: "linear-gradient(145deg, rgba(10,132,255,0.08) 0%, rgba(94,92,230,0.06) 50%, rgba(191,90,242,0.04) 100%), rgba(255,255,255,0.02)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "#eeede8",
+              border: "1px solid #d5d3cc",
             }}
           >
             {/* Ambient orb */}
@@ -65,12 +65,12 @@ export function CTASection() {
                 <span className="text-gradient-apple">extraordinary.</span>
               </h2>
 
-              <p className="body-lg max-w-md mx-auto mb-10">
-                Book a free 30-minute discovery call. We&apos;ll listen, ask
-                the right questions, and tell you honestly what it takes.
+              <p className="body-lg max-w-md mx-0 mb-10">
+                Share a little about the challenge, the people it affects, and
+                what a successful outcome would look like.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-3 items-start">
                 <Link
                   href="/contact"
                   className="btn-apple"
@@ -82,10 +82,10 @@ export function CTASection() {
                 <a
                   href="mailto:hello@malikagencies.com"
                   className="btn-ghost"
-                  aria-label="Book a discovery call"
+                  aria-label="Email Malik Agencies"
                 >
-                  <Calendar className="w-4 h-4" aria-hidden="true" />
-                  Book a Call
+                  <Mail className="w-4 h-4" aria-hidden="true" />
+                  Email us
                 </a>
               </div>
             </div>
