@@ -7,7 +7,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with Malik Agencies. Tell us about your idea and we'll get back to you within one business day.",
+    "Tell Malik Agencies what you’re planning. We’ll get back to you about next steps.",
 };
 
 const contactMethods = [
@@ -35,10 +35,9 @@ const contactMethods = [
 ];
 
 const expectations = [
-  "We reply within 1 business day",
-  "Free 30-min discovery call",
-  "Detailed proposal in 48 hours",
-  "No commitment required",
+  "We’ll read your message and follow up.",
+  "We can talk through scope, timing and budget.",
+  "There’s no obligation to continue.",
 ];
 
 export default function ContactPage() {
@@ -56,13 +55,12 @@ export default function ContactPage() {
           <ScrollReveal>
             <p className="label-sm mb-4">Contact</p>
             <h1 className="display-lg text-white mb-5">
-              Let&apos;s build something
+              Tell us about
               <br />
-              <span className="text-gradient-apple">together.</span>
+              <span className="text-gradient-apple">your project.</span>
             </h1>
             <p className="body-lg max-w-lg">
-              Tell us about your project. We respond to every inquiry
-              within one business day.
+              A few details will help us understand what you need.
             </p>
           </ScrollReveal>
         </div>
@@ -113,7 +111,7 @@ export default function ContactPage() {
                       <MessageSquare className="w-4 h-4" style={{ color: "#0a84ff" }} aria-hidden="true" />
                     </div>
                     <h2 className="text-white font-semibold text-[15px] tracking-[-0.01em]">
-                      What to expect
+                      Next steps
                     </h2>
                   </div>
                   <ul className="space-y-3.5" aria-label="What happens after you contact us">
@@ -147,7 +145,7 @@ export default function ContactPage() {
                   }}
                 >
                   <h2 className="text-white font-semibold text-[15px] tracking-[-0.01em] mb-5">
-                    Other ways to reach us
+                    Contact details
                   </h2>
                   <ul className="space-y-4" role="list">
                     {contactMethods.map(({ icon: Icon, label, value, href, color }) => (
@@ -185,26 +183,6 @@ export default function ContactPage() {
                 </div>
               </ScrollReveal>
 
-              {/* Response time badge */}
-              <ScrollReveal delay={0.24}>
-                <div
-                  className="rounded-[20px] p-5 flex items-center gap-4"
-                  style={{
-                    background: "rgba(48,209,88,0.05)",
-                    border: "1px solid rgba(48,209,88,0.15)",
-                  }}
-                >
-                  <div
-                    className="w-2.5 h-2.5 rounded-full animate-pulse shrink-0"
-                    style={{ background: "#30d158" }}
-                    aria-hidden="true"
-                  />
-                  <p className="text-white/60 text-[13px]">
-                    <strong className="text-white/80 font-semibold">Currently available</strong>
-                    {" "}— accepting new projects
-                  </p>
-                </div>
-              </ScrollReveal>
             </aside>
           </div>
         </div>

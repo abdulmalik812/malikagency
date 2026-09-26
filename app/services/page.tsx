@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Full-stack web development, mobile apps, AI automation, and custom software solutions. Transparent pricing, clear timelines, senior expertise.",
+    "Websites, mobile apps, AI features and custom software, built with your team.",
 };
 
 const services = [
@@ -14,20 +14,17 @@ const services = [
     id: "web",
     icon: Globe,
     title: "Web Development",
-    tagline: "Fast, scalable, SEO-ready web applications",
+    tagline: "Websites and web applications",
     description:
-      "We build production-grade web apps with Next.js and React — from marketing sites to complex SaaS platforms. Every project is architected for performance, scalability, and long-term maintainability.",
+      "From marketing sites to SaaS products, we build web software with Next.js and React.",
     includes: [
-      "Custom Next.js / React applications",
-      "REST & GraphQL API development",
-      "Database design & optimization",
-      "Authentication & authorization",
-      "CMS integration (Sanity, Contentful)",
-      "CI/CD pipeline setup",
-      "SEO optimization",
-      "Performance audits & tuning",
+      "Websites and web apps",
+      "APIs and database design",
+      "Accounts and permissions",
+      "CMS and third-party integrations",
+      "Performance and search optimization",
     ],
-    timeline: "4–16 weeks depending on scope",
+    timeline: "Timing depends on the scope",
     tech: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Redis", "Vercel", "AWS"],
     color: "#0a84ff",
   },
@@ -35,20 +32,19 @@ const services = [
     id: "mobile",
     icon: Smartphone,
     title: "Mobile Apps",
-    tagline: "Cross-platform iOS & Android with React Native",
+    tagline: "Apps for iOS and Android",
     description:
-      "Ship to both platforms simultaneously without sacrificing quality. React Native with Expo for rapid iteration and near-native performance — with a single TypeScript codebase.",
+      "We build for both platforms with React Native and Expo, using one shared codebase.",
     includes: [
       "iOS & Android from one codebase",
-      "Native device integrations (camera, GPS, biometrics)",
+      "Camera, location and biometrics",
       "Push notifications",
-      "Offline-first architecture",
+      "Offline support",
       "App Store & Play Store submission",
-      "Analytics & crash reporting setup",
+      "Analytics and crash reporting",
       "Backend API integration",
-      "Real-time features (WebSocket/SSE)",
     ],
-    timeline: "6–20 weeks depending on complexity",
+    timeline: "Timing depends on the scope",
     tech: ["React Native", "Expo", "TypeScript", "Firebase", "Supabase", "Stripe"],
     color: "#30d158",
   },
@@ -56,20 +52,20 @@ const services = [
     id: "ai",
     icon: Bot,
     title: "AI & Automation",
-    tagline: "LLM-powered features and workflow automation",
+    tagline: "AI features and workflow automation",
     description:
-      "Integrate AI meaningfully into your product or operations. From RAG pipelines and custom agents to document processing and intelligent search — we build AI that works in production.",
+      "We add language models, document processing or automation where they solve a clear problem.",
     includes: [
       "LLM integration (OpenAI, Anthropic, Gemini)",
       "RAG systems with vector databases",
-      "Custom AI agents & tools",
+      "AI assistants and tools",
       "Document processing pipelines",
       "AI-powered search",
       "Workflow automation (n8n, Zapier, custom)",
-      "Fine-tuning & prompt engineering",
+      "Model and prompt tuning",
       "AI cost optimization",
     ],
-    timeline: "2–12 weeks depending on scope",
+    timeline: "Timing depends on the scope",
     tech: ["Python", "LangChain", "LlamaIndex", "Pinecone", "OpenAI", "FastAPI", "AWS Lambda"],
     color: "#bf5af2",
   },
@@ -77,20 +73,20 @@ const services = [
     id: "custom",
     icon: Layers,
     title: "Custom Software",
-    tagline: "Bespoke platforms built around your business",
+    tagline: "Tools shaped around your business",
     description:
-      "When off-the-shelf doesn't fit, we build from scratch. Internal tools, dashboards, ERP modules, B2B SaaS — complex software delivered with clean architecture and long-term maintainability.",
+      "We build internal tools, dashboards and SaaS products when off-the-shelf software isn’t a fit.",
     includes: [
-      "Requirements & system architecture",
+      "Technical planning",
       "Full-stack development",
       "Third-party integrations",
       "Admin dashboards",
-      "Multi-tenant SaaS setup",
+      "Multi-account SaaS products",
       "Role-based access control",
       "Billing & subscription management",
-      "Handover documentation",
+      "Documentation and handover",
     ],
-    timeline: "8–24 weeks, milestone-based",
+    timeline: "Timing depends on the scope",
     tech: ["Next.js", "Python", "PostgreSQL", "Docker", "Kubernetes", "Stripe", "Resend"],
     color: "#ff9f0a",
   },
@@ -112,13 +108,12 @@ export default function ServicesPage() {
           <ScrollReveal>
             <p className="label-sm mb-4">Services</p>
             <h1 id="services-page-heading" className="display-lg text-white mb-5">
-              What we build — and
+              Software for
               <br />
-              <span className="text-gradient-apple">how we build it.</span>
+              <span className="text-gradient-apple">your business.</span>
             </h1>
             <p className="body-lg max-w-xl mx-auto">
-              Senior engineers, transparent process, and a commitment to
-              long-term quality. No junior handoffs, no outsourcing.
+              Web, mobile and custom software, built with your team.
             </p>
           </ScrollReveal>
         </div>
@@ -261,14 +256,13 @@ export default function ServicesPage() {
         <div className="container-apple max-w-2xl mx-auto">
           <ScrollReveal>
             <h2 className="display-md text-white mb-5">
-              Not sure which service fits?
+              Not sure where to start?
             </h2>
             <p className="body-lg mb-10">
-              Book a free call. We&apos;ll talk through your project and recommend
-              the right approach — no commitment required.
+              Tell us what you’re working on. We’ll talk through the options.
             </p>
             <Link href="/contact" className="btn-apple">
-              Book a Free Discovery Call
+              Talk about your project
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </ScrollReveal>

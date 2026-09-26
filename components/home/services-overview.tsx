@@ -11,7 +11,7 @@ const services = [
     icon: Globe,
     title: "Web Development",
     description:
-      "High-performance web applications built with Next.js and React. Fast, scalable, and SEO-optimised from day one.",
+      "Websites and applications built to fit your product and your team.",
     features: ["Next.js & React", "API Design", "Performance", "SEO"],
     href: "/services#web",
     color: "#0a84ff",
@@ -21,7 +21,7 @@ const services = [
     icon: Smartphone,
     title: "Mobile Apps",
     description:
-      "Cross-platform iOS and Android apps with native performance. One codebase, shipped faster, maintained easier.",
+      "iOS and Android apps, built together with React Native.",
     features: ["React Native", "iOS & Android", "Push Notifications", "Offline"],
     href: "/services#mobile",
     color: "#30d158",
@@ -31,7 +31,7 @@ const services = [
     icon: Bot,
     title: "AI & Automation",
     description:
-      "Integrate AI into your workflows — from LLM-powered features to end-to-end automation that saves hours daily.",
+      "Useful AI features and automations, added where they make sense.",
     features: ["LLM Integration", "RAG Systems", "Automation", "Agents"],
     href: "/services#ai",
     color: "#bf5af2",
@@ -41,7 +41,7 @@ const services = [
     icon: Layers,
     title: "Custom Software",
     description:
-      "Bespoke software solutions — from internal tools to complex SaaS platforms, architected for longevity.",
+      "Internal tools and software shaped around the way your business works.",
     features: ["Architecture", "Database Design", "Integrations", "Support"],
     href: "/services#custom",
     color: "#ff9f0a",
@@ -63,13 +63,13 @@ export function ServicesOverview() {
             id="services-heading"
             className="display-md text-white mb-5"
           >
-            Full-stack expertise,
+            What we can
             <br />
-            <span className="text-gradient-apple">end to end.</span>
+            <span className="text-gradient-apple">help you build.</span>
           </h2>
           <p className="body-lg max-w-xl mx-auto">
-            From discovery to deployment, we cover every layer of the stack
-            so you don&apos;t need to stitch together multiple vendors.
+            From a first release to an established product, we can help plan,
+            build and maintain it.
           </p>
         </ScrollReveal>
 

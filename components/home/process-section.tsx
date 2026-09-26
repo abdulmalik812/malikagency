@@ -8,31 +8,31 @@ const steps = [
     number: "01",
     title: "Discovery Call",
     description:
-      "A focused 30-minute conversation to understand your vision, goals, and constraints. No jargon, no sales pitch — just honest exploration.",
+      "We’ll talk about what you’re building and what you need help with.",
   },
   {
     number: "02",
     title: "Proposal & Scoping",
     description:
-      "A detailed proposal covering scope, timeline, tech stack, and pricing. Clear milestones, no surprises on either side.",
+      "We’ll agree on the work, timing and cost before we begin.",
   },
   {
     number: "03",
     title: "Design & Architecture",
     description:
-      "We map out system architecture and design the UI before writing a single line of code — preventing costly changes later.",
+      "We work through the design and technical plan together.",
   },
   {
     number: "04",
     title: "Build & Iterate",
     description:
-      "Agile sprints with weekly demos. You see real progress every week and guide direction with continuous feedback.",
+      "We build in stages and share progress as we go.",
   },
   {
     number: "05",
     title: "Launch & Support",
     description:
-      "We handle deployment, monitoring, and post-launch support. Your success after launch is part of our commitment.",
+      "We launch the product and can help with what comes next.",
   },
 ];
 
@@ -50,12 +50,12 @@ export function ProcessSection() {
             id="process-heading"
             className="display-md text-white mb-5"
           >
-            A process built
+            From first call
             <br />
-            <span className="text-gradient-white">for clarity.</span>
+            <span className="text-gradient-white">to launch.</span>
           </h2>
           <p className="body-lg max-w-md mx-auto">
-            Transparent, structured, and collaborative — at every step.
+            We agree on the plan, then keep you in the loop as we work.
           </p>
         </ScrollReveal>
 

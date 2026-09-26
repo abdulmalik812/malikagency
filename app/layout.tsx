@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Malik Agencies",
   },
   description:
-    "Malik Agencies partners with teams to design, build, and evolve web, mobile, and custom software products.",
+    "Websites, mobile apps and custom software, built with your team.",
   keywords: [
     "software development agency",
     "web development",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Malik Agencies",
     title: "Malik Agencies — Software Studio",
     description:
-      "We partner with teams to design, build, and evolve web, mobile, and custom software products.",
+      "Websites, mobile apps and custom software, built with your team.",
     images: [
       {
         url: `${siteUrl}/og-image.png`,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Malik Agencies — Software Studio",
     description:
-      "We build world-class web apps, mobile applications, and AI-powered software for ambitious businesses.",
+      "Websites, mobile apps and custom software, built with your team.",
     images: [`${siteUrl}/og-image.png`],
   },
   robots: {

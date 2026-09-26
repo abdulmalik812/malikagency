@@ -395,8 +395,6 @@ body { background: var(--bg-primary); color: var(--text-primary); }
 main { background: var(--bg-primary); }
 header[role="banner"] { background: rgb(245 244 240 / 94%); border-bottom: 1px solid var(--border-subtle); backdrop-filter: blur(12px); }
 header[role="banner"] nav { max-width: 1200px; height: 72px; }
-header[role="banner"] a[aria-label="Malik Agencies — Home"] > div { background: #174b75 !important; border-radius: 2px !important; }
-header[role="banner"] a[aria-label="Malik Agencies — Home"] span { color: #171a1d !important; font-size: 17px; }
 header[role="banner"] ul a { color: #50565b !important; border-radius: 3px !important; }
 header[role="banner"] ul a:hover, header[role="banner"] ul a[aria-current="page"] { color: #171a1d !important; }
 header[role="banner"] ul a span.absolute { display: none; }
@@ -478,7 +476,6 @@ footer[role="contentinfo"] [class*="text-white"] { color: #f5f4f0 !important; }
 
 body, main { background: #111416; color: #f1f0eb; }
 header[role="banner"] { background: rgb(17 20 22 / 86%); border-bottom-color: rgb(237 240 241 / 8%); }
-header[role="banner"] a[aria-label="Malik Agencies — Home"] span { color: #f1f0eb !important; }
 header[role="banner"] a[aria-label="Malik Agencies — Home"] > div { background: #315c7d !important; }
 header[role="banner"] ul a { color: #a8afb2 !important; }
 header[role="banner"] ul a:hover, header[role="banner"] ul a[aria-current="page"] { color: #f1f0eb !important; }
@@ -545,3 +542,36 @@ footer[role="contentinfo"] { background: #0b0e10 !important; border-top: 1px sol
   .agency-object *, .agency-object { animation: none !important; }
   .section [class*="glass-card"] { transition: none !important; }
 }
+
+header[role="banner"] .agency-brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+header[role="banner"] .agency-brand-lockup { display: inline-flex; align-items: center; gap: 11px; }
+header[role="banner"] .agency-brand-mark { width: 43px; height: 43px; display: grid; place-items: center; border: 1px solid rgb(49 183 188 / 40%); border-radius: 8px; background: linear-gradient(145deg, rgb(36 68 74 / 65%), rgb(20 30 34 / 90%)); box-shadow: inset 0 1px 0 rgb(255 255 255 / 13%), 0 5px 14px rgb(0 0 0 / 22%); color: #c6ddeb; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+header[role="banner"] .agency-brand-mark svg { width: 39px; height: 39px; overflow: visible; }
+header[role="banner"] .agency-brand-mark path { stroke: none; }
+header[role="banner"] .agency-brand:hover .agency-brand-mark { transform: translateY(-1px) rotateX(8deg); border-color: rgb(168 195 215 / 62%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 18%), 0 7px 18px rgb(0 0 0 / 32%); }
+header[role="banner"] .agency-brand-type { display: flex; flex-direction: column; gap: 2px; line-height: 1; }
+header[role="banner"] .agency-brand-name { display: flex; align-items: baseline; color: #f1f0eb !important; font-family: "Arial Narrow", "Roboto Condensed", Inter, sans-serif; font-size: 21px; font-weight: 650; letter-spacing: .12em; }
+header[role="banner"] .agency-brand-accent { color: #df7163 !important; }
+header[role="banner"] .agency-brand-rule { display: block; width: 100%; height: 2px; background: linear-gradient(90deg, #31b7bc 0%, #31b7bc 78%, #df7163 78%, #df7163 100%); }
+header[role="banner"] .agency-brand-descriptor { color: #d4d9d8 !important; font-size: 8px; font-weight: 650; letter-spacing: .12em; line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
+header[role="banner"] .agency-brand-subdescriptor { color: #91a0a5 !important; font-size: 7px; font-weight: 550; letter-spacing: .1em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+#mobile-menu .agency-brand-name { color: #f1f0eb !important; }
+#mobile-menu .agency-brand-descriptor { color: #9aa6ad !important; }
+@media (prefers-reduced-motion: reduce) {
+  header[role="banner"] .agency-brand-mark { transition: none; }
+}
+
+header[role="banner"] { border-bottom-color: transparent; background-image: linear-gradient(90deg, #315c7d 0%, #f1f0eb 50%, #88aac4 100%); background-repeat: no-repeat; background-position: bottom; background-size: 100% 1px; }
+header[role="banner"] .agency-brand-lockup, footer[role="contentinfo"] .agency-brand-lockup { gap: 9px; }
+header[role="banner"] .agency-brand-mark, footer[role="contentinfo"] .agency-brand-mark { width: 34px; height: 34px; border-color: rgb(136 170 196 / 42%); background: linear-gradient(145deg, #1d3447, #121a22); }
+header[role="banner"] .agency-brand-mark svg, footer[role="contentinfo"] .agency-brand-mark svg { width: 31px; height: 31px; }
+header[role="banner"] .agency-brand-type, footer[role="contentinfo"] .agency-brand-type { gap: 2px; }
+header[role="banner"] .agency-brand-name, footer[role="contentinfo"] .agency-brand-name { font-size: 16px; letter-spacing: .1em; }
+header[role="banner"] .agency-brand-accent, footer[role="contentinfo"] .agency-brand-accent { color: #88aac4 !important; }
+header[role="banner"] .agency-brand-rule, footer[role="contentinfo"] .agency-brand-rule { width: 92px; height: 1px; background: linear-gradient(90deg, #315c7d 0%, #f1f0eb 52%, #88aac4 100%); }
+header[role="banner"] .agency-brand-rule span, footer[role="contentinfo"] .agency-brand-rule span { display: none; }
+header[role="banner"] .agency-brand-descriptor, footer[role="contentinfo"] .agency-brand-descriptor { color: #a8c3d7 !important; font-size: 7px; letter-spacing: .15em; }
+footer[role="contentinfo"] .agency-brand { display: inline-flex; align-items: center; text-decoration: none; }
+footer[role="contentinfo"] .agency-brand-name { color: #f1f0eb !important; }
+footer[role="contentinfo"] > div:first-child { border: 0 !important; background: linear-gradient(90deg, #315c7d, #f1f0eb 50%, #88aac4) top / 100% 1px no-repeat, linear-gradient(90deg, #315c7d, #f1f0eb 50%, #88aac4) bottom / 100% 1px no-repeat; }
+footer[role="contentinfo"] .agency-brand-mark { box-shadow: inset 0 1px 0 rgb(255 255 255 / 13%), 0 5px 14px rgb(0 0 0 / 22%); }

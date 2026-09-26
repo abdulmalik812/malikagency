@@ -15,6 +15,28 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+export function BrandLockup() {
+  return (
+    <span className="agency-brand-lockup">
+      <span className="agency-brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 88 88" fill="none">
+          <path d="M14 27 43 10l29 16v14L43 56 14 40V27Z" fill="#88AAC4" />
+          <path d="m14 27 29 17v12L14 40V27Z" fill="#315C7D" />
+          <path d="m43 44 29-18v14L43 57V44Z" fill="#244664" />
+          <path d="m72 49-29 17-29-16V36l29 16 29-17v14Z" fill="#DCE7EF" />
+          <path d="m14 50 29 16v12L14 62V50Z" fill="#244664" />
+          <path d="m43 66 29-17v13L43 79V66Z" fill="#88AAC4" />
+        </svg>
+      </span>
+      <span className="agency-brand-type">
+        <span className="agency-brand-name">MALIK<span className="agency-brand-accent">.</span></span>
+        <span className="agency-brand-rule"><span /></span>
+        <span className="agency-brand-descriptor">Software agency</span>
+      </span>
+    </span>
+  );
+}
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,23 +75,10 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 group"
+            className="agency-brand group"
             aria-label="Malik Agencies — Home"
           >
-            {/* Apple-style logotype */}
-            <div className="w-7 h-7 rounded-[8px] flex items-center justify-center overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, #0a84ff 0%, #5e5ce6 100%)",
-              }}
-            >
-              {/* Minimal M icon */}
-              <svg width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true">
-                <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <span className="font-semibold text-[15px] tracking-[-0.02em] text-white/90">
-              Malik
-            </span>
+            <BrandLockup />
           </Link>
 
           {/* Desktop links */}
@@ -156,15 +165,8 @@ export function Navbar() {
               style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.6)" }}
             >
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
-                <Link href="/" className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-[8px] flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #0a84ff 0%, #5e5ce6 100%)" }}
-                  >
-                    <svg width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true">
-                      <path d="M1 11V1L7 8L13 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                  <span className="font-semibold text-[15px] tracking-[-0.02em] text-white/90">Malik</span>
+                <Link href="/" className="agency-brand">
+                  <BrandLockup />
                 </Link>
                 <button
                   onClick={() => setMenuOpen(false)}

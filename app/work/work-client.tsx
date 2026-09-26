@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, TrendingUp, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const projects = [
@@ -12,9 +12,7 @@ const projects = [
     title: "TradeSpark E-Commerce",
     category: "Web",
     description:
-      "Full-stack e-commerce platform with AI recommendations, real-time inventory, and a custom vendor dashboard. Handles 10k+ SKUs.",
-    result: "3.2× conversion rate increase",
-    tech: ["Next.js", "Stripe", "PostgreSQL", "Redis"],
+      "Online store with inventory tools and a vendor dashboard.",
     color: "#0a84ff",
     href: "/work/tradespark",
   },
@@ -23,9 +21,7 @@ const projects = [
     title: "Velox Finance App",
     category: "Mobile",
     description:
-      "Cross-platform personal finance tracker with bank-level security, LLM-powered spend insights, and smart budgeting tools.",
-    result: "48k downloads in month one",
-    tech: ["React Native", "Plaid", "OpenAI", "Firebase"],
+      "Mobile app for tracking spending and setting budget goals.",
     color: "#30d158",
     href: "/work/velox",
   },
@@ -34,9 +30,7 @@ const projects = [
     title: "DocuFlow AI",
     category: "AI",
     description:
-      "B2B document processing SaaS using custom-trained extraction models. Processes invoices, contracts, and forms at 99.2% accuracy.",
-    result: "12h/week saved per team",
-    tech: ["Python", "LangChain", "Pinecone", "Next.js"],
+      "Document software for extracting information from business files.",
     color: "#bf5af2",
     href: "/work/docuflow",
   },
@@ -45,9 +39,7 @@ const projects = [
     title: "NextHire ATS",
     category: "Web",
     description:
-      "Custom applicant tracking system for a mid-size recruiting firm. Multi-tenant, role-based, integrated with LinkedIn and Outlook.",
-    result: "60% faster hiring cycle",
-    tech: ["Next.js", "PostgreSQL", "SendGrid", "OAuth"],
+      "Applicant tracking system with team roles and recruiting integrations.",
     color: "#0a84ff",
     href: "/work/nexthire",
   },
@@ -56,9 +48,7 @@ const projects = [
     title: "ShopMate Mobile",
     category: "Mobile",
     description:
-      "White-label B2C shopping app for a retail chain. Features loyalty points, QR scanner, and real-time stock lookup.",
-    result: "22% increase in in-store revenue",
-    tech: ["React Native", "Expo", "Supabase", "Stripe"],
+      "Retail app with loyalty points, QR scanning and stock lookup.",
     color: "#30d158",
     href: "/work/shopmate",
   },
@@ -67,9 +57,7 @@ const projects = [
     title: "InsightBoard Analytics",
     category: "Custom",
     description:
-      "Internal analytics dashboard for a logistics company — live tracking, driver performance, and predictive delay alerts.",
-    result: "40% reduction in late deliveries",
-    tech: ["Next.js", "Python", "ClickHouse", "Mapbox"],
+      "Logistics dashboard for tracking deliveries and driver activity.",
     color: "#ff9f0a",
     href: "/work/insightboard",
   },
@@ -105,11 +93,10 @@ export function WorkPageClient() {
           <ScrollReveal>
             <p className="label-sm mb-4">Our Work</p>
             <h1 className="display-lg text-white mb-5">
-              Projects that{" "}
-              <span className="text-gradient-apple">speak for themselves.</span>
+              Selected work.
             </h1>
             <p className="body-lg max-w-xl mx-auto">
-              A selection of our recent work across web, mobile, AI, and custom software.
+              A few web, mobile and software projects.
             </p>
           </ScrollReveal>
         </div>
@@ -177,7 +164,7 @@ export function WorkPageClient() {
               role="tabpanel"
               aria-label={`${active} projects`}
             >
-              {filtered.map(({ id, title, category, description, result, tech, color, href }) => (
+              {filtered.map(({ id, title, category, description, color, href }) => (
                 <motion.article
                   key={id}
                   layout
@@ -234,26 +221,6 @@ export function WorkPageClient() {
                       {description}
                     </p>
 
-                    {/* Result badge */}
-                    <div
-                      className="flex items-center gap-2 px-3 py-2 rounded-xl mb-4"
-                      style={{
-                        background: `${color}10`,
-                        border: `1px solid ${color}22`,
-                      }}
-                      aria-label={`Result: ${result}`}
-                    >
-                      <TrendingUp className="w-3.5 h-3.5 shrink-0" style={{ color }} aria-hidden="true" />
-                      <span className="text-[12px] font-semibold" style={{ color }}>{result}</span>
-                    </div>
-
-                    {/* Tech chips */}
-                    <div className="flex flex-wrap gap-1.5 mb-5" role="list" aria-label="Technologies used">
-                      {tech.map((t) => (
-                        <span key={t} className="chip" role="listitem">{t}</span>
-                      ))}
-                    </div>
-
                     <Link
                       href={href}
                       className="btn-text w-fit"
@@ -288,13 +255,13 @@ export function WorkPageClient() {
         <div className="container-apple max-w-xl mx-auto">
           <ScrollReveal>
             <h2 className="display-md text-white mb-4">
-              Want to be on this page?
+              Have a project in mind?
             </h2>
             <p className="body-lg mb-10">
-              Let&apos;s build something worth showing off.
+              Tell us what you want to build.
             </p>
             <Link href="/contact" className="btn-apple">
-              Start a Project
+              Talk about your project
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </ScrollReveal>

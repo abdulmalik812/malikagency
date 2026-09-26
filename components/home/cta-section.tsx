@@ -54,20 +54,19 @@ export function CTASection() {
             />
 
             <div className="relative z-10">
-              <p className="label-sm mb-4">Ready to Start?</p>
+              <p className="label-sm mb-4">Have a project in mind?</p>
 
               <h2
                 id="cta-heading"
                 className="display-lg text-white mb-5"
               >
-                Let&apos;s build something
+                Tell us what
                 <br />
-                <span className="text-gradient-apple">extraordinary.</span>
+                <span className="text-gradient-apple">you&apos;re working on.</span>
               </h2>
 
               <p className="body-lg max-w-md mx-0 mb-10">
-                Share a little about the challenge, the people it affects, and
-                what a successful outcome would look like.
+                A short note is enough to get the conversation started.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 items-start">

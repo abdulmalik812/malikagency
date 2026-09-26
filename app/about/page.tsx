@@ -7,45 +7,38 @@ import { ScrollReveal, StaggerContainer, staggerItem } from "@/components/ui/scr
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Malik Agencies is a software development agency founded by Abdul Malik. We believe great software changes businesses. Learn our story, mission, and values.",
+    "Meet the people behind Malik Agencies and learn how we work with clients.",
 };
 
 const values = [
   {
     icon: Target,
-    title: "Outcome-Driven",
+    title: "Start with the problem",
     description:
-      "We measure success by what your software achieves, not just whether it was delivered. Every decision is tied back to your business goals.",
+      "We take time to understand what the software needs to do.",
     color: "#0a84ff",
   },
   {
     icon: Users,
-    title: "Collaborative",
+    title: "Work together",
     description:
-      "We treat every project as a partnership. Full visibility, weekly updates, and a direct line to the engineers building your product.",
+      "You work directly with the people building your product.",
     color: "#30d158",
   },
   {
     icon: Lightbulb,
-    title: "Thoughtful Craft",
+    title: "Keep it maintainable",
     description:
-      "We care deeply about the details — clean architecture, readable code, intuitive UX. What we build today should be maintainable for years.",
+      "We aim for clear design and code your team can keep working on.",
     color: "#ff9f0a",
   },
   {
     icon: Heart,
-    title: "People First",
+    title: "Be straightforward",
     description:
-      "We only take on projects we believe in, work with clients we respect, and take care of the humans on both sides of the engagement.",
+      "We’re honest about the scope, tradeoffs and timing.",
     color: "#bf5af2",
   },
-];
-
-const stats = [
-  { label: "Founded", value: "2023" },
-  { label: "Projects Shipped", value: "50+" },
-  { label: "Countries Served", value: "8" },
-  { label: "Client Retention", value: "94%" },
 ];
 
 const skills = ["Next.js", "TypeScript", "Python", "System Design", "AI/ML", "React Native"];
@@ -63,16 +56,15 @@ export default function AboutPage() {
       >
         <div className="container-apple">
           <ScrollReveal>
-            <p className="label-sm mb-4">About Us</p>
+            <p className="label-sm mb-4">About</p>
             <h1 className="display-lg text-white mb-5 max-w-2xl">
-              Software built with
+              A small team,
               <br />
-              <span className="text-gradient-apple">purpose and precision.</span>
+              <span className="text-gradient-apple">close to the work.</span>
             </h1>
             <p className="body-lg max-w-xl">
-              We&apos;re a small, senior team that cares deeply about the software
-              we ship. No bloated teams, no junior hand-offs — just experienced
-              engineers who take ownership.
+              We work directly with our clients, from the first conversation
+              through launch and ongoing support.
             </p>
           </ScrollReveal>
         </div>
@@ -98,31 +90,27 @@ export default function AboutPage() {
                 id="story-heading"
                 className="display-md text-white mb-6"
               >
-                Built from frustration.
+                Clear plans.
                 <br />
-                <span className="text-gradient-white">Driven by standards.</span>
+                <span className="text-gradient-white">Careful work.</span>
               </h2>
               <div className="space-y-4 text-white/55 text-[15px] leading-relaxed">
                 <p>
-                  Malik Agencies was founded after watching too many businesses
-                  get burned by agencies that over-promised and under-delivered —
-                  spaghetti code, missed deadlines, and software that crumbled at scale.
+                  Malik Agencies was founded by Abdul Malik to give clients a more
+                  direct, practical way to build software.
                 </p>
                 <p>
-                  We started with a simple belief: software agencies should be
-                  held to the same standard as the software they build. Clean
-                  architecture, honest timelines, transparent communication, and
-                  code that&apos;s actually maintainable.
+                  We keep projects clear: agree on the scope, share progress and
+                  make decisions together.
                 </p>
                 <p>
-                  Today, we work with startups and growing businesses across
-                  e-commerce, fintech, logistics, and SaaS — helping them build
-                  software that becomes a competitive advantage, not a liability.
+                  Our work includes websites, mobile apps and custom tools for
+                  growing businesses.
                 </p>
               </div>
             </ScrollReveal>
 
-            {/* Stats grid */}
+            {/* Working principles */}
             <ScrollReveal delay={0.12}>
               <div
                 className="relative rounded-[24px] p-8 overflow-hidden"
@@ -141,25 +129,14 @@ export default function AboutPage() {
                   }}
                   aria-hidden="true"
                 />
-                <div className="relative grid grid-cols-2 gap-4">
-                  {stats.map(({ label, value }) => (
-                    <div
-                      key={label}
-                      className="text-center p-5 rounded-[16px]"
-                      style={{
-                        background: "rgba(255,255,255,0.03)",
-                        border: "1px solid rgba(255,255,255,0.06)",
-                      }}
-                    >
-                      <div
-                        className="text-4xl font-bold mb-1 text-white"
-                        style={{ letterSpacing: "-0.03em" }}
-                      >
-                        {value}
-                      </div>
-                      <div className="text-white/40 text-[12px] font-medium uppercase tracking-wide">
-                        {label}
-                      </div>
+                <div className="relative space-y-4">
+                  {[
+                    "Talk directly with the team",
+                    "Agree on scope before we start",
+                    "Build for the people who use it",
+                  ].map((item) => (
+                    <div key={item} className="border-b border-white/10 pb-4 text-white/70 text-[15px]">
+                      {item}
                     </div>
                   ))}
                 </div>
@@ -179,77 +156,135 @@ export default function AboutPage() {
           <ScrollReveal className="text-center mb-16">
             <p className="label-sm mb-3">The Team</p>
             <h2 id="founder-heading" className="display-md text-white">
-              The person behind
+              The people behind
               <br />
               <span className="text-gradient-white">the work.</span>
             </h2>
           </ScrollReveal>
 
-          {/* Founder card — Apple-style horizontal split */}
-          <ScrollReveal>
-            <div
-              className="max-w-3xl mx-auto rounded-[28px] overflow-hidden"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(10,132,255,0.06) 0%, rgba(94,92,230,0.04) 50%, rgba(191,90,242,0.03) 100%), rgba(255,255,255,0.02)",
-                border: "1px solid rgba(255,255,255,0.08)",
-              }}
-            >
-              <div className="flex flex-col sm:flex-row">
-                {/* Photo */}
-                <div className="sm:w-56 shrink-0 relative overflow-hidden" style={{ minHeight: 240 }}>
-                  {/* Ambient glow behind photo */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background:
-                        "radial-gradient(ellipse at 50% 80%, rgba(10,132,255,0.15), transparent 65%)",
-                    }}
-                    aria-hidden="true"
-                  />
-                  <Image
-                    src="/photo_founder.png"
-                    alt="Abdul Malik — Founder & Lead Engineer at Malik Agencies"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, 224px"
-                    priority
-                  />
-                </div>
+          {/* Team cards grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
-                {/* Info */}
-                <div className="flex-1 p-8 sm:p-10 flex flex-col justify-center">
-                  {/* Name + role */}
-                  <h3
-                    className="text-white font-semibold text-[22px] tracking-[-0.025em] mb-1"
-                  >
-                    Abdul Malik
-                  </h3>
-                  <p
-                    className="text-[13px] font-semibold uppercase tracking-[0.1em] mb-5"
-                    style={{ color: "#0a84ff" }}
-                  >
-                    Founder & Lead Engineer
-                  </p>
+            {/* Abdul Malik — Founder card */}
+            <ScrollReveal>
+              <div
+                className="rounded-[28px] overflow-hidden h-full"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(10,132,255,0.06) 0%, rgba(94,92,230,0.04) 50%, rgba(191,90,242,0.03) 100%), rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <div className="flex flex-col">
+                  {/* Photo */}
+                  <div className="relative overflow-hidden" style={{ minHeight: 260 }}>
+                    <div
+                      className="absolute inset-0 pointer-events-none z-10"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse at 50% 90%, rgba(10,132,255,0.18), transparent 65%)",
+                      }}
+                      aria-hidden="true"
+                    />
+                    <Image
+                      src="/photo_founder.png"
+                      alt="Abdul Malik — Founder & Lead Engineer at Malik Agencies"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
+                    />
+                  </div>
 
-                  <p className="text-white/55 text-[14px] leading-relaxed mb-7">
-                    Full-stack engineer with a focus on scalable web architecture,
-                    API design, and AI integration. Passionate about building
-                    software that solves real problems with clean, maintainable code.
-                  </p>
-
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {skills.map((skill) => (
-                      <span key={skill} className="chip">
-                        {skill}
-                      </span>
-                    ))}
+                  {/* Info */}
+                  <div className="p-8 flex flex-col">
+                    <h3 className="text-white font-semibold text-[22px] tracking-[-0.025em] mb-1">
+                      Abdul Malik
+                    </h3>
+                    <p
+                      className="text-[13px] font-semibold uppercase tracking-[0.1em] mb-5"
+                      style={{ color: "#0a84ff" }}
+                    >
+                      Founder &amp; Lead Engineer
+                    </p>
+                    <p className="text-white/55 text-[14px] leading-relaxed mb-7">
+                      Abdul leads product engineering, from early technical planning
+                      through implementation.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.map((skill) => (
+                        <span key={skill} className="chip">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+
+            {/* Alina Farooqui — AI/ML Engineer card */}
+            <ScrollReveal>
+              <div
+                className="rounded-[28px] overflow-hidden h-full"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(191,90,242,0.06) 0%, rgba(94,92,230,0.04) 50%, rgba(10,132,255,0.03) 100%), rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <div className="flex flex-col">
+                  {/* Photo placeholder with AI-themed gradient */}
+                  <div className="relative overflow-hidden flex items-center justify-center" style={{ minHeight: 260, background: "linear-gradient(135deg, rgba(191,90,242,0.12) 0%, rgba(94,92,230,0.10) 50%, rgba(10,132,255,0.08) 100%)" }}>
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse at 50% 90%, rgba(191,90,242,0.20), transparent 65%)",
+                      }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="relative z-10 flex items-center justify-center rounded-full text-white font-bold"
+                      style={{
+                        width: 96,
+                        height: 96,
+                        fontSize: 36,
+                        background: "linear-gradient(135deg, #bf5af2, #5e5ce6)",
+                        boxShadow: "0 0 40px rgba(191,90,242,0.35)",
+                      }}
+                    >
+                      AF
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-8 flex flex-col">
+                    <h3 className="text-white font-semibold text-[22px] tracking-[-0.025em] mb-1">
+                      Alina Farooqui
+                    </h3>
+                    <p
+                      className="text-[13px] font-semibold uppercase tracking-[0.1em] mb-5"
+                      style={{ color: "#bf5af2" }}
+                    >
+                      AI / ML Engineer
+                    </p>
+                    <p className="text-white/55 text-[14px] leading-relaxed mb-7">
+                      Alina works on machine learning and AI features for software products.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Python", "PyTorch", "LLMs", "MLOps", "Data Science"].map((skill) => (
+                        <span key={skill} className="chip">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+          </div>
         </div>
       </section>
 
@@ -307,10 +342,10 @@ export default function AboutPage() {
         <div className="container-apple text-center">
           <ScrollReveal>
             <h2 className="display-md text-white mb-4">
-              Ready to work together?
+              Have a project in mind?
             </h2>
             <p className="body-lg max-w-sm mx-auto mb-10">
-              Let&apos;s talk about your project.
+              Tell us what you&apos;re planning.
             </p>
             <Link href="/contact" className="btn-apple">
               Get in Touch

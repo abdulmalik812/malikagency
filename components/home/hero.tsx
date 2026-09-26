@@ -32,9 +32,9 @@ export function Hero() {
           transition={{ duration: 0.7, ease, delay: 0.18 }}
           className="display-xl mb-7 text-white agency-headline"
         >
-          Thoughtful software.
+          Software for
           <br />
-          <span>Built for what&apos;s next.</span>
+          <span>the work ahead.</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -44,8 +44,7 @@ export function Hero() {
           transition={{ duration: 0.6, ease, delay: 0.3 }}
           className="body-lg max-w-[560px] mb-10 agency-intro"
         >
-          We partner with ambitious teams to design, build and evolve digital
-          products — from the first technical decision through launch and beyond.
+          We design and build websites, apps and custom software with your team.
         </motion.p>
 
         {/* CTAs */}

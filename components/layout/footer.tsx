@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/ui/icons";
+import { BrandLockup } from "@/components/layout/navbar";
 
 const footerLinks = {
   Pages: [
@@ -38,11 +38,11 @@ export function Footer() {
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container-apple py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p className="label-sm mb-1">Ready to build?</p>
+            <p className="label-sm mb-1">Get in touch</p>
             <h2
               className="text-white font-semibold text-[20px] tracking-[-0.02em]"
             >
-              Let&apos;s turn your idea into a product.
+              Working on a project?
             </h2>
           </div>
           <Link
@@ -50,7 +50,7 @@ export function Footer() {
             className="btn-apple shrink-0 !py-2.5 !px-6 !text-[13px]"
             aria-label="Start a project"
           >
-            Get Started
+            Contact us
             <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </div>
@@ -62,18 +62,11 @@ export function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center mb-5 group" aria-label="Malik Agencies">
-              <Image
-                src="/footer_logo.png"
-                alt="Malik Agencies"
-                width={160}
-                height={48}
-                className="object-contain group-hover:opacity-90 transition-opacity"
-                priority
-              />
+            <Link href="/" className="agency-brand mb-5 group" aria-label="Malik Agencies">
+              <BrandLockup />
             </Link>
             <p className="text-white/40 text-[13px] leading-relaxed max-w-[260px] mb-6">
-              We build world-class software for ambitious businesses — from MVPs to enterprise platforms.
+              Websites, apps and custom software for growing businesses.
             </p>
 
             {/* Socials */}

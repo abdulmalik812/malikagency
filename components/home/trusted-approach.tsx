@@ -7,30 +7,30 @@ import { ScrollReveal, StaggerContainer, staggerItem } from "@/components/ui/scr
 const values = [
   {
     icon: ShieldCheck,
-    title: "Quality Without Compromise",
+    title: "Built to last",
     description:
-      "Every line of code is written to production standards. Security, performance, and architecture best practices — by default, not afterthought.",
+      "We write software that your team can understand and maintain.",
     color: "#0a84ff",
   },
   {
     icon: Clock,
-    title: "Delivery You Can Count On",
+    title: "Clear communication",
     description:
-      "We set realistic timelines and hit them. Weekly demos, clear milestones, and proactive communication mean no surprises.",
+      "You’ll know what’s done, what’s next and where we need your input.",
     color: "#30d158",
   },
   {
     icon: Lightbulb,
-    title: "Strategic Partnership",
+    title: "Solve the right problem",
     description:
-      "We challenge assumptions, suggest better approaches, and think about your business outcomes — not just the spec on paper.",
+      "We ask questions before we settle on an approach.",
     color: "#ff9f0a",
   },
   {
     icon: Headphones,
-    title: "Long-Term Support",
+    title: "Here after launch",
     description:
-      "Retainer maintenance, feature iterations, and dedicated support after launch. We stay invested in your success.",
+      "We can keep working with you as the product changes.",
     color: "#bf5af2",
   },
 ];
@@ -49,12 +49,12 @@ export function TrustedApproach() {
             id="approach-heading"
             className="display-md text-white mb-5"
           >
-            Principles that
+            How we like
             <br />
-            <span className="text-gradient-apple">guide every project.</span>
+            <span className="text-gradient-apple">to work.</span>
           </h2>
           <p className="body-lg max-w-md mx-auto">
-            The values behind every engagement we take on.
+            A few things you can expect when we work together.
           </p>
         </ScrollReveal>
 

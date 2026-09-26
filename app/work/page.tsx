@@ -4,7 +4,7 @@ import { WorkPageClient } from "./work-client";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Portfolio of web apps, mobile apps, AI tools, and custom software built by Malik Agencies. Real projects, real results.",
+    "Selected web, mobile and custom software projects from Malik Agencies.",
 };
 
 export default function WorkPage() {

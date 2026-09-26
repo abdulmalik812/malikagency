@@ -11,9 +11,7 @@ const projects = [
     category: "Web Development",
     title: "TradeSpark E-Commerce",
     description:
-      "Full-stack e-commerce with AI-powered recommendations, real-time inventory, and custom admin dashboard.",
-    result: "3.2× conversion rate",
-    tech: ["Next.js", "Stripe", "PostgreSQL", "Redis"],
+      "Online store with inventory tools and a custom admin dashboard.",
     color: "#0a84ff",
     bg: "from-[#0a84ff]/[0.08] to-transparent",
     href: "/work/tradespark",
@@ -23,9 +21,7 @@ const projects = [
     category: "Mobile App",
     title: "Velox Finance App",
     description:
-      "Cross-platform personal finance app with real-time tracking, budget goals, and LLM-powered spend analysis.",
-    result: "48k downloads in month one",
-    tech: ["React Native", "Plaid", "OpenAI", "Firebase"],
+      "Mobile app for tracking spending and setting budget goals.",
     color: "#30d158",
     bg: "from-[#30d158]/[0.08] to-transparent",
     href: "/work/velox",
@@ -35,9 +31,7 @@ const projects = [
     category: "AI / SaaS",
     title: "DocuFlow AI Platform",
     description:
-      "B2B SaaS that automates document processing and data extraction with custom-trained models.",
-    result: "12h/week saved per team",
-    tech: ["Python", "LangChain", "Next.js", "AWS"],
+      "Document workflow software for extracting information from business files.",
     color: "#bf5af2",
     bg: "from-[#bf5af2]/[0.08] to-transparent",
     href: "/work/docuflow",
@@ -60,9 +54,7 @@ export function FeaturedWork() {
               id="work-heading"
               className="display-md text-white"
             >
-              Projects we&apos;re
-              <br />
-              <span className="text-gradient-white">proud of.</span>
+              Selected work.
             </h2>
           </div>
           <Link
@@ -77,7 +69,7 @@ export function FeaturedWork() {
 
         {/* Cards */}
         <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {projects.map(({ id, category, title, description, tech, color, href }) => (
+          {projects.map(({ id, category, title, description, color, href }) => (
             <motion.article
               key={id}
               variants={staggerItem}
@@ -103,13 +95,6 @@ export function FeaturedWork() {
                 <p className="text-white/50 text-[13px] leading-relaxed mb-5 flex-1">
                   {description}
                 </p>
-
-                {/* Tech chips */}
-                <div className="flex flex-wrap gap-1.5 mb-5" role="list" aria-label="Technologies used">
-                  {tech.map((t) => (
-                    <span key={t} className="chip" role="listitem">{t}</span>
-                  ))}
-                </div>
 
                 <Link
                   href={href}

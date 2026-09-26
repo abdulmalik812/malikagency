@@ -106,8 +106,7 @@ export function ContactForm() {
           Message sent!
         </h3>
         <p className="text-white/50 text-[14px] leading-relaxed mb-8 max-w-sm mx-auto">
-          Thanks for reaching out. We&apos;ll review your project and get back
-          to you within one business day.
+          Thanks for getting in touch. We’ll follow up soon.
         </p>
         <button
           onClick={() => setStatus("idle")}
@@ -141,7 +140,7 @@ export function ContactForm() {
             autoComplete="name"
             required
             minLength={2}
-            placeholder="Abdul Malik"
+            placeholder="Your name"
             className={inputBase}
             aria-required="true"
           />
@@ -156,7 +155,7 @@ export function ContactForm() {
             type="email"
             autoComplete="email"
             required
-            placeholder="you@company.com"
+            placeholder="you@example.com"
             className={inputBase}
             aria-required="true"
           />
@@ -214,7 +213,7 @@ export function ContactForm() {
           required
           rows={6}
           minLength={20}
-          placeholder="Tell us about your project — what you're building, your goals, and any constraints we should know about…"
+          placeholder="What are you working on, and where would you like help?"
           className={cn(inputBase, "resize-none")}
           aria-required="true"
         />
@@ -250,14 +249,14 @@ export function ContactForm() {
           </>
         ) : (
           <>
-            Send Message
+        Send message
             <Send className="w-4 h-4" aria-hidden="true" />
           </>
         )}
       </button>
 
       <p className="text-[11px] text-white/25 text-center">
-        We&apos;ll never share your information. No spam, ever.
+        We&apos;ll use your contact details to reply.
       </p>
     </form>
   );
