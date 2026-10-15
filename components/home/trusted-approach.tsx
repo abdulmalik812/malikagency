@@ -10,40 +10,40 @@ const values = [
     title: "Built to last",
     description:
       "We write software that your team can understand and maintain.",
-    color: "#0a84ff",
+    color: "#9bbcd3",
   },
   {
     icon: Clock,
     title: "Clear communication",
     description:
       "You’ll know what’s done, what’s next and where we need your input.",
-    color: "#30d158",
+    color: "#aec4ad",
   },
   {
     icon: Lightbulb,
     title: "Solve the right problem",
     description:
       "We ask questions before we settle on an approach.",
-    color: "#ff9f0a",
+    color: "#c7b395",
   },
   {
     icon: Headphones,
     title: "Here after launch",
     description:
       "We can keep working with you as the product changes.",
-    color: "#bf5af2",
+    color: "#b9b1ca",
   },
 ];
 
 export function TrustedApproach() {
   return (
     <section
-      className="section"
+      className="section approach-section"
       style={{ background: "#000" }}
       aria-labelledby="approach-heading"
     >
       <div className="container-apple">
-        <ScrollReveal className="text-center mb-16">
+        <ScrollReveal className="section-heading mb-16">
           <p className="label-sm mb-3">Our Approach</p>
           <h2
             id="approach-heading"
@@ -58,7 +58,7 @@ export function TrustedApproach() {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <StaggerContainer className="approach-grid">
           {values.map(({ icon: Icon, title, description, color }) => (
             <motion.div
               key={title}
@@ -87,8 +87,7 @@ export function TrustedApproach() {
               </h3>
               <p
                 className="text-white/50 text-[13.5px] leading-relaxed relative z-10"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
+              >{description}</p>
             </motion.div>
           ))}
         </StaggerContainer>

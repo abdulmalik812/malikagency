@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Globe, Smartphone, Bot, Layers, CheckCircle2, ArrowRight, Clock } from "lucide-react";
+import { Globe, Smartphone, Bot, Layers, CheckCircle2, Rocket, Clock } from "lucide-react";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
@@ -26,7 +26,7 @@ const services = [
     ],
     timeline: "Timing depends on the scope",
     tech: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Redis", "Vercel", "AWS"],
-    color: "#0a84ff",
+    color: "#9bbcd3",
   },
   {
     id: "mobile",
@@ -46,7 +46,7 @@ const services = [
     ],
     timeline: "Timing depends on the scope",
     tech: ["React Native", "Expo", "TypeScript", "Firebase", "Supabase", "Stripe"],
-    color: "#30d158",
+    color: "#aec4ad",
   },
   {
     id: "ai",
@@ -67,7 +67,7 @@ const services = [
     ],
     timeline: "Timing depends on the scope",
     tech: ["Python", "LangChain", "LlamaIndex", "Pinecone", "OpenAI", "FastAPI", "AWS Lambda"],
-    color: "#bf5af2",
+    color: "#b9b1ca",
   },
   {
     id: "custom",
@@ -88,7 +88,7 @@ const services = [
     ],
     timeline: "Timing depends on the scope",
     tech: ["Next.js", "Python", "PostgreSQL", "Docker", "Kubernetes", "Stripe", "Resend"],
-    color: "#ff9f0a",
+    color: "#c7b395",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function ServicesPage() {
         className="relative pt-32 pb-20 overflow-hidden text-center"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(10,132,255,0.08) 0%, transparent 60%), #000",
+            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(155,188,211,0.08) 0%, transparent 60%), #000",
         }}
         aria-labelledby="services-page-heading"
       >
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                       aria-label={`Start a ${title} project`}
                     >
                       Start a {title} Project
-                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                      <Rocket className="w-4 h-4" aria-hidden="true" />
                     </Link>
                   </div>
                 </ScrollReveal>
@@ -263,7 +263,7 @@ export default function ServicesPage() {
             </p>
             <Link href="/contact" className="btn-apple">
               Talk about your project
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <Rocket className="w-4 h-4" aria-hidden="true" />
             </Link>
           </ScrollReveal>
         </div>

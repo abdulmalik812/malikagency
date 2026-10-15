@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Target, Users, Lightbulb, Heart } from "lucide-react";
-import { ScrollReveal, StaggerContainer, staggerItem } from "@/components/ui/scroll-reveal";
+import { MessageSquare, Target, Users, Lightbulb, Heart } from "lucide-react";
+import { ScrollReveal, StaggerContainer } from "@/components/ui/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -16,28 +16,28 @@ const values = [
     title: "Start with the problem",
     description:
       "We take time to understand what the software needs to do.",
-    color: "#0a84ff",
+    color: "#9bbcd3",
   },
   {
     icon: Users,
     title: "Work together",
     description:
       "You work directly with the people building your product.",
-    color: "#30d158",
+    color: "#aec4ad",
   },
   {
     icon: Lightbulb,
     title: "Keep it maintainable",
     description:
       "We aim for clear design and code your team can keep working on.",
-    color: "#ff9f0a",
+    color: "#c7b395",
   },
   {
     icon: Heart,
     title: "Be straightforward",
     description:
       "We’re honest about the scope, tradeoffs and timing.",
-    color: "#bf5af2",
+    color: "#b9b1ca",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
         className="relative pt-32 pb-20 overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(10,132,255,0.08) 0%, transparent 60%), #000",
+            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(155,188,211,0.08) 0%, transparent 60%), #000",
         }}
       >
         <div className="container-apple">
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 className="relative rounded-[24px] p-8 overflow-hidden"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(10,132,255,0.06) 0%, rgba(94,92,230,0.04) 100%), rgba(255,255,255,0.02)",
+                    "linear-gradient(135deg, rgba(155,188,211,0.06) 0%, rgba(154,171,192,0.04) 100%), rgba(255,255,255,0.02)",
                   border: "1px solid rgba(255,255,255,0.07)",
                 }}
               >
@@ -125,7 +125,7 @@ export default function AboutPage() {
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(10,132,255,0.08), transparent 65%)",
+                      "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(155,188,211,0.08), transparent 65%)",
                   }}
                   aria-hidden="true"
                 />
@@ -171,18 +171,18 @@ export default function AboutPage() {
                 className="rounded-[28px] overflow-hidden h-full"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(10,132,255,0.06) 0%, rgba(94,92,230,0.04) 50%, rgba(191,90,242,0.03) 100%), rgba(255,255,255,0.02)",
+                    "linear-gradient(135deg, rgba(155,188,211,0.06) 0%, rgba(154,171,192,0.04) 50%, rgba(185,177,202,0.03) 100%), rgba(255,255,255,0.02)",
                   border: "1px solid rgba(255,255,255,0.08)",
                 }}
               >
                 <div className="flex flex-col">
                   {/* Photo */}
-                  <div className="relative overflow-hidden" style={{ minHeight: 260 }}>
+                  <div className="relative overflow-hidden" style={{ minHeight: 420 }}>
                     <div
                       className="absolute inset-0 pointer-events-none z-10"
                       style={{
                         background:
-                          "radial-gradient(ellipse at 50% 90%, rgba(10,132,255,0.18), transparent 65%)",
+                          "radial-gradient(ellipse at 50% 90%, rgba(155,188,211,0.18), transparent 65%)",
                       }}
                       aria-hidden="true"
                     />
@@ -203,7 +203,7 @@ export default function AboutPage() {
                     </h3>
                     <p
                       className="text-[13px] font-semibold uppercase tracking-[0.1em] mb-5"
-                      style={{ color: "#0a84ff" }}
+                      style={{ color: "#9bbcd3" }}
                     >
                       Founder &amp; Lead Engineer
                     </p>
@@ -229,18 +229,18 @@ export default function AboutPage() {
                 className="rounded-[28px] overflow-hidden h-full"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(191,90,242,0.06) 0%, rgba(94,92,230,0.04) 50%, rgba(10,132,255,0.03) 100%), rgba(255,255,255,0.02)",
+                    "linear-gradient(135deg, rgba(185,177,202,0.06) 0%, rgba(154,171,192,0.04) 50%, rgba(155,188,211,0.03) 100%), rgba(255,255,255,0.02)",
                   border: "1px solid rgba(255,255,255,0.08)",
                 }}
               >
                 <div className="flex flex-col">
                   {/* Photo placeholder with AI-themed gradient */}
-                  <div className="relative overflow-hidden flex items-center justify-center" style={{ minHeight: 260, background: "linear-gradient(135deg, rgba(191,90,242,0.12) 0%, rgba(94,92,230,0.10) 50%, rgba(10,132,255,0.08) 100%)" }}>
+                  <div className="relative overflow-hidden flex items-center justify-center" style={{ minHeight: 420, background: "linear-gradient(135deg, rgba(185,177,202,0.12) 0%, rgba(154,171,192,0.10) 50%, rgba(155,188,211,0.08) 100%)" }}>
                     <div
                       className="absolute inset-0 pointer-events-none"
                       style={{
                         background:
-                          "radial-gradient(ellipse at 50% 90%, rgba(191,90,242,0.20), transparent 65%)",
+                          "radial-gradient(ellipse at 50% 90%, rgba(185,177,202,0.20), transparent 65%)",
                       }}
                       aria-hidden="true"
                     />
@@ -250,8 +250,8 @@ export default function AboutPage() {
                         width: 96,
                         height: 96,
                         fontSize: 36,
-                        background: "linear-gradient(135deg, #bf5af2, #5e5ce6)",
-                        boxShadow: "0 0 40px rgba(191,90,242,0.35)",
+                        background: "linear-gradient(135deg, #b9b1ca, #9aabc0)",
+                        boxShadow: "0 0 40px rgba(185,177,202,0.35)",
                       }}
                     >
                       AF
@@ -265,7 +265,7 @@ export default function AboutPage() {
                     </h3>
                     <p
                       className="text-[13px] font-semibold uppercase tracking-[0.1em] mb-5"
-                      style={{ color: "#bf5af2" }}
+                      style={{ color: "#b9b1ca" }}
                     >
                       AI / ML Engineer
                     </p>
@@ -349,7 +349,7 @@ export default function AboutPage() {
             </p>
             <Link href="/contact" className="btn-apple">
               Get in Touch
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <MessageSquare className="w-4 h-4" aria-hidden="true" />
             </Link>
           </ScrollReveal>
         </div>
