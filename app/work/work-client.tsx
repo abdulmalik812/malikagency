@@ -3,74 +3,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { MessageSquare, BookOpen } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
-const projects = [
-  {
-    id: "tradespark",
-    title: "TradeSpark E-Commerce",
-    category: "Web",
-    description:
-      "Online store with inventory tools and a vendor dashboard.",
-    color: "#0a84ff",
-    href: "/work/tradespark",
-  },
-  {
-    id: "velox",
-    title: "Velox Finance App",
-    category: "Mobile",
-    description:
-      "Mobile app for tracking spending and setting budget goals.",
-    color: "#30d158",
-    href: "/work/velox",
-  },
-  {
-    id: "docuflow",
-    title: "DocuFlow AI",
-    category: "AI",
-    description:
-      "Document software for extracting information from business files.",
-    color: "#bf5af2",
-    href: "/work/docuflow",
-  },
-  {
-    id: "nexthire",
-    title: "NextHire ATS",
-    category: "Web",
-    description:
-      "Applicant tracking system with team roles and recruiting integrations.",
-    color: "#0a84ff",
-    href: "/work/nexthire",
-  },
-  {
-    id: "shopmate",
-    title: "ShopMate Mobile",
-    category: "Mobile",
-    description:
-      "Retail app with loyalty points, QR scanning and stock lookup.",
-    color: "#30d158",
-    href: "/work/shopmate",
-  },
-  {
-    id: "insightboard",
-    title: "InsightBoard Analytics",
-    category: "Custom",
-    description:
-      "Logistics dashboard for tracking deliveries and driver activity.",
-    color: "#ff9f0a",
-    href: "/work/insightboard",
-  },
-];
+import { projects } from "@/lib/projects";
+import { ProjectVisual } from "@/components/ui/project-visual";
 
 const categories = ["All", "Web", "Mobile", "AI", "Custom"];
 
 const categoryColors: Record<string, string> = {
-  All:    "#0a84ff",
-  Web:    "#0a84ff",
-  Mobile: "#30d158",
-  AI:     "#bf5af2",
-  Custom: "#ff9f0a",
+  All:    "#9bbcd3",
+  Web:    "#9bbcd3",
+  Mobile: "#aec4ad",
+  AI:     "#b9b1ca",
+  Custom: "#c7b395",
 };
 
 export function WorkPageClient() {
@@ -86,7 +32,7 @@ export function WorkPageClient() {
         className="relative pt-32 pb-20 overflow-hidden text-center"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(94,92,230,0.08) 0%, transparent 60%), #000",
+            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(154,171,192,0.08) 0%, transparent 60%), #000",
         }}
       >
         <div className="container-apple">
@@ -109,7 +55,7 @@ export function WorkPageClient() {
 
       {/* ── Filter + Grid ── */}
       <section
-        className="section"
+        className="section work-section"
         style={{ background: "#000" }}
         aria-label="Portfolio projects"
       >
@@ -118,7 +64,7 @@ export function WorkPageClient() {
           {/* Filter pills */}
           <div
             className="flex flex-wrap gap-2 justify-center mb-14"
-            role="tablist"
+            role="group"
             aria-label="Filter projects by category"
           >
             {categories.map((cat) => {
@@ -128,15 +74,15 @@ export function WorkPageClient() {
                 <button
                   key={cat}
                   onClick={() => setActive(cat)}
-                  role="tab"
-                  aria-selected={isActive}
+                  aria-pressed={isActive}
+                  
                   className="px-5 py-2 rounded-full text-[13px] font-medium transition-all duration-200"
                   style={
                     isActive
                       ? {
-                          background: `${col}14`,
+                          background: "#dbe8ef",
                           border: `1px solid ${col}44`,
-                          color: col,
+                          color: "#071017",
                           boxShadow: `0 0 20px ${col}14`,
                         }
                       : {
@@ -160,8 +106,8 @@ export function WorkPageClient() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-              role="tabpanel"
+              className="work-grid"
+              role="region"
               aria-label={`${active} projects`}
             >
               {filtered.map(({ id, title, category, description, color, href }) => (
@@ -171,36 +117,7 @@ export function WorkPageClient() {
                   className="glass-card group flex flex-col overflow-hidden"
                   aria-labelledby={`work-${id}-title`}
                 >
-                  {/* Visual band */}
-                  <div
-                    className="h-36 w-full relative flex items-center justify-center overflow-hidden"
-                    style={{
-                      background: `linear-gradient(135deg, ${color}10 0%, transparent 70%)`,
-                    }}
-                    aria-hidden="true"
-                  >
-                    {/* Radial glow */}
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background: `radial-gradient(ellipse 70% 70% at 50% 50%, ${color}18, transparent 70%)`,
-                      }}
-                    />
-                    <div
-                      className="relative w-12 h-12 rounded-2xl"
-                      style={{
-                        background: `${color}18`,
-                        border: `1px solid ${color}30`,
-                        backdropFilter: "blur(8px)",
-                      }}
-                    />
-                    <div
-                      className="absolute top-0 right-0 w-28 h-28 opacity-20"
-                      style={{
-                        background: `radial-gradient(ellipse at 80% 20%, ${color}60, transparent 60%)`,
-                      }}
-                    />
-                  </div>
+                  <Link href={href} tabIndex={-1} aria-hidden="true"><ProjectVisual id={id} title={title}/></Link>
 
                   <div className="p-6 flex flex-col flex-1">
                     <span
@@ -228,7 +145,7 @@ export function WorkPageClient() {
                       aria-label={`View ${title} case study`}
                     >
                       View Case Study
-                      <ExternalLink
+                      <BookOpen
                         className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                         aria-hidden="true"
                       />
@@ -262,7 +179,7 @@ export function WorkPageClient() {
             </p>
             <Link href="/contact" className="btn-apple">
               Talk about your project
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <MessageSquare className="w-4 h-4" aria-hidden="true" />
             </Link>
           </ScrollReveal>
         </div>

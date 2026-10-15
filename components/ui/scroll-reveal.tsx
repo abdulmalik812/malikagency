@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +19,7 @@ export function ScrollReveal({
   direction = "up",
   once = true,
 }: ScrollRevealProps) {
+  const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, margin: "-80px 0px" });
 
@@ -33,8 +34,8 @@ export function ScrollReveal({
   return (
     <motion.div
       ref={ref}
-      initial={directionVariants[direction]}
-      animate={isInView ? { y: 0, x: 0, opacity: 1 } : directionVariants[direction]}
+      initial={reduced ? false : directionVariants[direction]}
+      animate={isInView || reduced ? { y: 0, x: 0, opacity: 1 } : directionVariants[direction]}
       transition={{
         duration: 0.55,
         delay,
@@ -58,14 +59,15 @@ export function StaggerContainer({
   className,
   staggerDelay = 0.08,
 }: StaggerContainerProps) {
+  const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px 0px" });
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      initial={reduced ? "visible" : "hidden"}
+      animate={isInView || reduced ? "visible" : "hidden"}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },

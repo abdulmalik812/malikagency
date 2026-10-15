@@ -16,21 +16,21 @@ const contactMethods = [
     label: "Email",
     value: "hello@malikagencies.com",
     href: "mailto:hello@malikagencies.com",
-    color: "#0a84ff",
+    color: "#9bbcd3",
   },
   {
     icon: LinkedinIcon,
     label: "LinkedIn",
     value: "linkedin.com/company/malikagencies",
     href: "https://linkedin.com/company/malikagencies",
-    color: "#30d158",
+    color: "#aec4ad",
   },
   {
     icon: TwitterIcon,
     label: "Twitter / X",
     value: "@malikagencies",
     href: "https://twitter.com/malikagencies",
-    color: "#5e5ce6",
+    color: "#9aabc0",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function ContactPage() {
         className="relative pt-32 pb-20 overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(10,132,255,0.08) 0%, transparent 60%), #000",
+            "radial-gradient(ellipse 80% 60% at 50% -5%, rgba(155,188,211,0.08) 0%, transparent 60%), #000",
         }}
       >
         <div className="container-apple">
@@ -106,9 +106,9 @@ export default function ContactPage() {
                   <div className="flex items-center gap-2.5 mb-5">
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center"
-                      style={{ background: "rgba(10,132,255,0.12)", border: "1px solid rgba(10,132,255,0.2)" }}
+                      style={{ background: "rgba(155,188,211,0.12)", border: "1px solid rgba(155,188,211,0.2)" }}
                     >
-                      <MessageSquare className="w-4 h-4" style={{ color: "#0a84ff" }} aria-hidden="true" />
+                      <MessageSquare className="w-4 h-4" style={{ color: "#9bbcd3" }} aria-hidden="true" />
                     </div>
                     <h2 className="text-white font-semibold text-[15px] tracking-[-0.01em]">
                       Next steps
@@ -120,9 +120,9 @@ export default function ContactPage() {
                         <span
                           className="w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0 text-white"
                           style={{
-                            background: "rgba(10,132,255,0.12)",
-                            border: "1px solid rgba(10,132,255,0.25)",
-                            color: "#0a84ff",
+                            background: "rgba(155,188,211,0.12)",
+                            border: "1px solid rgba(155,188,211,0.25)",
+                            color: "#9bbcd3",
                           }}
                           aria-hidden="true"
                         >

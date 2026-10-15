@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ScrollReveal, StaggerContainer, staggerItem } from "@/components/ui/scroll-reveal";
+
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const steps = [
   {
@@ -36,68 +36,4 @@ const steps = [
   },
 ];
 
-export function ProcessSection() {
-  return (
-    <section
-      className="section"
-      style={{ background: "linear-gradient(180deg, #000 0%, #080808 100%)" }}
-      aria-labelledby="process-heading"
-    >
-      <div className="container-apple">
-        <ScrollReveal className="text-center mb-20">
-          <p className="label-sm mb-3">How We Work</p>
-          <h2
-            id="process-heading"
-            className="display-md text-white mb-5"
-          >
-            From first call
-            <br />
-            <span className="text-gradient-white">to launch.</span>
-          </h2>
-          <p className="body-lg max-w-md mx-auto">
-            We agree on the plan, then keep you in the loop as we work.
-          </p>
-        </ScrollReveal>
-
-        <StaggerContainer>
-          <div className="space-y-4">
-            {steps.map(({ number, title, description }, idx) => (
-              <motion.div
-                key={number}
-                variants={staggerItem}
-                className="glass-card p-7 flex items-start gap-7 group hover:border-white/[0.12]"
-              >
-                {/* Step number */}
-                <div className="shrink-0 pt-0.5">
-                  <span className="step-number">{number}</span>
-                </div>
-
-                {/* Separator */}
-                <div
-                  className="shrink-0 w-px self-stretch mt-1.5 mb-1.5"
-                  style={{ background: "rgba(255,255,255,0.06)" }}
-                  aria-hidden="true"
-                />
-
-                {/* Content */}
-                <div>
-                  <h3 className="text-white font-semibold text-[18px] tracking-[-0.02em] mb-2">
-                    {title}
-                  </h3>
-                  <p className="text-white/50 text-[14px] leading-relaxed max-w-xl">
-                    {description}
-                  </p>
-                </div>
-
-                {/* Right accent dot */}
-                <div className="ml-auto shrink-0 self-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">
-                  <div className="w-2 h-2 rounded-full bg-[#0a84ff]" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </StaggerContainer>
-      </div>
-    </section>
-  );
-}
+export function ProcessSection(){return <section className="section process-section" aria-labelledby="process-heading"><div className="container-apple process-layout"><ScrollReveal className="process-heading"><p className="label-sm">How We Work</p><h2 id="process-heading" className="display-md">From first call<br/><span className="muted">to launch.</span></h2><p className="body-lg">We agree on the plan, then keep you in the loop as we work.</p><div className="process-diagram" aria-hidden="true"><span/><span/><span/></div></ScrollReveal><div className="process-list">{steps.map(({number,title,description})=><ScrollReveal key={number}><div className="process-row"><span className="step-number">{number}</span><div><h3>{title}</h3><p>{description}</p></div></div></ScrollReveal>)}</div></div></section>}

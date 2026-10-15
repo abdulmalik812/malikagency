@@ -1,15 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { Experience } from "@/components/experience/experience";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
+const inter = localFont({src:"../public/fonts/inter-latin.woff2",variable:"--font-inter",display:"swap"});
 
 const siteUrl = "https://malikagencies.com";
 
@@ -84,8 +80,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased">
-        <Navbar />
-        <main>{children}</main>
+        <Experience/><a href="#main-content" className="skip-link">Skip to content</a><Navbar />
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

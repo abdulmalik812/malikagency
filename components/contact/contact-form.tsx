@@ -12,6 +12,7 @@ interface FormData {
   projectType: string;
   budget: string;
   message: string;
+  website?: string;
 }
 
 const projectTypes = [
@@ -37,7 +38,7 @@ const inputBase = [
   "text-white/85 placeholder-white/25",
   "transition-all duration-200 outline-none appearance-none",
   "bg-white/[0.03] border border-white/[0.07]",
-  "focus:border-[#0a84ff]/60 focus:ring-2 focus:ring-[#0a84ff]/10 focus:bg-white/[0.05]",
+  "focus:border-[#9bbcd3]/60 focus:ring-2 focus:ring-[#9bbcd3]/10 focus:bg-white/[0.05]",
 ].join(" ");
 
 const labelBase = "block text-[12px] font-medium text-white/45 uppercase tracking-[0.08em] mb-2";
@@ -59,6 +60,7 @@ export function ContactForm() {
       projectType: formData.get("projectType") as string,
       budget: formData.get("budget") as string,
       message: formData.get("message") as string,
+      website: formData.get("website") as string,
     };
 
     try {
@@ -100,7 +102,7 @@ export function ContactForm() {
             border: "1px solid rgba(48,209,88,0.25)",
           }}
         >
-          <CheckCircle2 className="w-8 h-8" style={{ color: "#30d158" }} aria-hidden="true" />
+          <CheckCircle2 className="w-8 h-8" style={{ color: "#aec4ad" }} aria-hidden="true" />
         </div>
         <h3 className="text-white font-semibold text-[20px] tracking-[-0.02em] mb-3">
           Message sent!
@@ -125,13 +127,13 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="space-y-5"
       aria-label="Contact form"
-      noValidate
     >
+      <div className="form-trap" aria-hidden="true"><label htmlFor="contact-website">Website</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off"/></div>
       {/* Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="contact-name" className={labelBase}>
-            Name <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
+            Name <span style={{ color: "#9bbcd3" }} aria-hidden="true">*</span>
           </label>
           <input
             id="contact-name"
@@ -140,6 +142,7 @@ export function ContactForm() {
             autoComplete="name"
             required
             minLength={2}
+            maxLength={100}
             placeholder="Your name"
             className={inputBase}
             aria-required="true"
@@ -147,12 +150,13 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="contact-email" className={labelBase}>
-            Email <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
+            Email <span style={{ color: "#9bbcd3" }} aria-hidden="true">*</span>
           </label>
           <input
             id="contact-email"
             name="email"
             type="email"
+            maxLength={254}
             autoComplete="email"
             required
             placeholder="you@example.com"
@@ -166,7 +170,7 @@ export function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="contact-project-type" className={labelBase}>
-            Project Type <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
+            Project Type <span style={{ color: "#9bbcd3" }} aria-hidden="true">*</span>
           </label>
           <select
             id="contact-project-type"
@@ -205,7 +209,7 @@ export function ContactForm() {
       {/* Message */}
       <div>
         <label htmlFor="contact-message" className={labelBase}>
-          Message <span style={{ color: "#0a84ff" }} aria-hidden="true">*</span>
+          Message <span style={{ color: "#9bbcd3" }} aria-hidden="true">*</span>
         </label>
         <textarea
           id="contact-message"
@@ -213,6 +217,7 @@ export function ContactForm() {
           required
           rows={6}
           minLength={20}
+          maxLength={5000}
           placeholder="What are you working on, and where would you like help?"
           className={cn(inputBase, "resize-none")}
           aria-required="true"

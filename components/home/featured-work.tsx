@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { LayoutGrid, BookOpen } from "lucide-react";
+import { ProjectVisual } from "@/components/ui/project-visual";
 import { ScrollReveal, StaggerContainer, staggerItem } from "@/components/ui/scroll-reveal";
 
 const projects = [
@@ -12,9 +13,9 @@ const projects = [
     title: "TradeSpark E-Commerce",
     description:
       "Online store with inventory tools and a custom admin dashboard.",
-    color: "#0a84ff",
-    bg: "from-[#0a84ff]/[0.08] to-transparent",
-    href: "/work/tradespark",
+    color: "#9bbcd3",
+    bg: "from-[#9bbcd3]/[0.08] to-transparent",
+    href: "/work/tradespark", visual: "tradespark",
   },
   {
     id: "fintech-app",
@@ -22,9 +23,9 @@ const projects = [
     title: "Velox Finance App",
     description:
       "Mobile app for tracking spending and setting budget goals.",
-    color: "#30d158",
-    bg: "from-[#30d158]/[0.08] to-transparent",
-    href: "/work/velox",
+    color: "#aec4ad",
+    bg: "from-[#aec4ad]/[0.08] to-transparent",
+    href: "/work/velox", visual: "velox",
   },
   {
     id: "ai-saas",
@@ -32,16 +33,16 @@ const projects = [
     title: "DocuFlow AI Platform",
     description:
       "Document workflow software for extracting information from business files.",
-    color: "#bf5af2",
-    bg: "from-[#bf5af2]/[0.08] to-transparent",
-    href: "/work/docuflow",
+    color: "#b9b1ca",
+    bg: "from-[#b9b1ca]/[0.08] to-transparent",
+    href: "/work/docuflow", visual: "docuflow",
   },
 ];
 
 export function FeaturedWork() {
   return (
     <section
-      className="section"
+      className="section featured-section"
       style={{ background: "#000" }}
       aria-labelledby="work-heading"
     >
@@ -63,19 +64,20 @@ export function FeaturedWork() {
             aria-label="View all portfolio projects"
           >
             View All Work
-            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+            <LayoutGrid className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </ScrollReveal>
 
         {/* Cards */}
         <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {projects.map(({ id, category, title, description, color, href }) => (
+          {projects.map(({ id, category, title, description, color, href, visual }) => (
             <motion.article
               key={id}
               variants={staggerItem}
               className="glass-card group relative flex flex-col overflow-hidden"
               aria-labelledby={`project-${id}-title`}
             >
+              <Link href={href} tabIndex={-1} aria-hidden="true"><ProjectVisual id={visual} title={title}/></Link>
               <div className="p-7 flex flex-col flex-1">
                 {/* Category */}
                 <span
@@ -103,7 +105,7 @@ export function FeaturedWork() {
                   aria-label={`View case study for ${title}`}
                 >
                   View Case Study
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  <BookOpen className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
               </div>
             </motion.article>
