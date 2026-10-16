@@ -5,7 +5,7 @@ export const projects: Project[] = [
     title: "LOLPDF Tools",
     category: "Web",
     description:
-      "Free no-login browser toolkit with 50 PDF and image tools, processed on the device.",
+      "A free online toolbox with 50 PDF and image tools: merge, split, compress and sign PDFs, remove image backgrounds, resize photos and more. Everything runs on the visitor's own device - no sign-up, no uploads, so private files never leave the computer or phone. Built for anyone who needs a quick document job done without installing software or hitting a paywall.",
     color: "#ff9f0a",
     href: "/work/lolpdf",
     liveUrl: "https://lol-pdf.vercel.app/",
@@ -63,5 +63,25 @@ export const projects: Project[] = [
       "Logistics dashboard for tracking deliveries and driver activity.",
     color: "#ff9f0a",
     href: "/work/insightboard",
+  },
+  {
+    id: "memerhub",
+    title: "MemerHub",
+    category: "Web",
+    description:
+      "A curated museum of internet memes, styled as the internet's group chat. It pairs 36 hand-picked classics with a live feed of 130+ memes - Vine-era legends, reaction images and whatever the internet is doing now. Visitors pick their era and save the ones that get them. A playful project that shows how far a strong idea and personality can carry a simple site.",
+    color: "#ffd60a",
+    href: "/work/memerhub",
+    liveUrl: "https://memer-hub.vercel.app/",
+  },
+  {
+    id: "stichclothing",
+    title: "Stich Clothing",
+    category: "Web",
+    description:
+      "The online store for a Lucknow clothing brand selling t-shirts, caps, mugs, pyjamas and more. Shoppers browse the drop by category or search, check photos, pick a size and add pieces to the cart. Checkout happens on WhatsApp: the full order goes straight to the team, and no card details are ever asked on the site. Lucknow orders ship the same day, other cities are confirmed on WhatsApp before dispatch, and tracking details come back on WhatsApp too. The brand also takes custom designs, team orders and gift runs.",
+    color: "#ed1c24",
+    href: "/work/stichclothing",
+    liveUrl: "https://stichclothing.vercel.app/",
   },
 ];
