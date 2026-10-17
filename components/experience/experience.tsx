@@ -35,7 +35,31 @@ export function Experience() {
     const pageLoaded = new Promise<void>(resolve => { if (document.readyState === "complete") resolve(); else addEventListener("load", () => resolve(), { once: true }); });
     const minDwell = new Promise<void>(resolve => setTimeout(resolve, reduced ? 0 : 3100));
     const cap = new Promise<void>(resolve => setTimeout(resolve, 5600));
-    if (!(window as unknown as { __holdLoader?: boolean }).__holdLoader) Promise.all([minDwell, Promise.race([pageLoaded, cap])]).then(() => { if (!gone) gsap.to(loader.current, { yPercent: -100, duration: reduced ? 0 : .55, ease: "power4.inOut" }); });
+    // Loader exit: fade the cycle, show the Malik mark, then fly it into the
+    // navbar's brand lockup while the loader background clears.
+    const finish = () => {
+      if (gone) return;
+      const loaderEl = loader.current; if (!loaderEl) return;
+      const done = () => document.documentElement.classList.add("loader-done");
+      const navBrand = document.querySelector<HTMLElement>(".site-header .agency-brand-lockup");
+      const logo = loaderEl.querySelector<HTMLElement>(".loader-logo");
+      if (reduced || !navBrand || !logo) { done(); gsap.to(loaderEl, { yPercent: -100, duration: reduced ? 0 : .55, ease: "power4.inOut" }); return; }
+      gsap.set(logo, { xPercent: -50, yPercent: -50 });
+      const slow = new URLSearchParams(location.search).get("slowflight") !== null, fm = slow ? 4 : 1;
+      const seq = gsap.timeline({ onComplete: () => { done(); gsap.set(loaderEl, { display: "none" }); } });
+      seq.to([".loader-frame", ".loader-caption", ".loader-line", ".loader-head"], { opacity: 0, y: -16, duration: .4, ease: "power2.in", stagger: .05 });
+      seq.fromTo(logo, { opacity: 0, scale: .72 }, { opacity: 1, scale: 1, duration: .5, ease: "power2.out" });
+      seq.to({}, { duration: .5 });
+      seq.add(() => {
+        const r = navBrand.getBoundingClientRect(), lr = logo.getBoundingClientRect();
+        gsap.to(logo, { x: r.left + r.width / 2 - (lr.left + lr.width / 2), y: r.top + r.height / 2 - (lr.top + lr.height / 2), scale: r.height / lr.height, duration: .8 * fm, ease: "power3.inOut" });
+        gsap.to(loaderEl, { backgroundColor: "rgba(8,11,16,0)", duration: .8 * fm, ease: "power2.inOut" });
+      });
+      seq.to({}, { duration: .9 * fm });
+    };
+    if (!(window as unknown as { __holdLoader?: boolean }).__holdLoader) Promise.all([minDwell, Promise.race([pageLoaded, cap])]).then(finish);
+    // Never leave the navbar brand hidden if something above stalls.
+    setTimeout(() => { if (!gone) document.documentElement.classList.add("loader-done"); }, 8800);
     const lenis = reduced ? null : new Lenis({ duration: 1.1, smoothWheel: true, anchors: { offset: -100 } });
     lenis?.on("scroll", ScrollTrigger.update);
     const tick = (t: number) => lenis?.raf(t * 1000); gsap.ticker.add(tick);
@@ -64,6 +88,21 @@ export function Experience() {
       // Reversible scroll choreography, kept short so it never blocks reading.
       gsap.utils.toArray<HTMLElement>(".section-heading h2, .process-heading h2").forEach(heading => {
         gsap.fromTo(heading, { clipPath: "inset(0 0 100% 0)", y: 55, opacity: .25 }, { clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: .85, ease: "power3.out", scrollTrigger: { trigger: heading, start: "top 94%", toggleActions: "play none none none" } });
+      });
+      // Chapter headings fill with color in the direction of their text column.
+      gsap.utils.toArray<HTMLElement>(".story-chapter .section-heading h2, .story-chapter .process-heading h2, .story-chapter .agency-cta h2").forEach(heading => {
+        const chapter = heading.closest<HTMLElement>(".story-chapter");
+        if (!chapter || heading.querySelector(".ht-fill")) return;
+        const textLeft = chapter.dataset.side !== "left";
+        heading.classList.add("ht-base");
+        const fill = document.createElement("span");
+        fill.className = "ht-fill";
+        fill.setAttribute("aria-hidden", "true");
+        fill.innerHTML = heading.innerHTML;
+        heading.appendChild(fill);
+        gsap.fromTo(fill,
+          { clipPath: textLeft ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)" },
+          { clipPath: "inset(0 0% 0 0%)", ease: "none", scrollTrigger: { trigger: heading, start: "top 88%", end: "top 32%", scrub: .5 } });
       });
       gsap.utils.toArray<HTMLElement>(".service-row").forEach((row, i) => {
         gsap.fromTo(row, { x: desktop ? (i % 2 ? 65 : -65) : 20, opacity: .3 }, { x: 0, opacity: 1, ease: "none", scrollTrigger: { trigger: row, start: "top 92%", end: "top 60%", scrub: .6 } });
@@ -105,5 +144,5 @@ export function Experience() {
     return () => { clearTimeout(timer); cleanups.forEach(cleanup => cleanup()); ctx.revert(); };
   }, [pathname]);
   const shots = [4, 12, 1, 9, 15, 3, 7, 16, 2, 11, 6, 14, 5, 13, 8, 10].map(n => `/loader/cycle-${n}.jpg`);
-  return <><div ref={cursor} className="cursor-ball" aria-hidden="true"/><div className="page-progress" ref={bar} aria-hidden="true"/><div className="site-loader" ref={loader} aria-hidden="true"><div className="loader-head"><span className="loader-name">Malik <em>Agencies</em></span><span className="loader-count">0</span></div><div className="loader-frame">{shots.map((src, i) => <div key={src} className="loader-shot" style={{ zIndex: i + 1 }}><img src={src} alt="" /></div>)}</div><div className="loader-line"><span/></div><span className="loader-caption">Software agency</span></div></>;
+  return <><div ref={cursor} className="cursor-ball" aria-hidden="true"/><div className="page-progress" ref={bar} aria-hidden="true"/><div className="site-loader" ref={loader} aria-hidden="true"><div className="loader-head"><span className="loader-name">Malik <em>Agencies</em></span><span className="loader-count">0</span></div><div className="loader-frame">{shots.map((src, i) => <div key={src} className="loader-shot" style={{ zIndex: i + 1 }}><img src={src} alt="" /></div>)}</div><div className="loader-line"><span/></div><span className="loader-caption">Software agency</span><div className="loader-logo"><span className="loader-logo-img"><img src="/nav_logo.png" alt=""/></span><span className="loader-logo-word">MALIK<span className="loader-logo-sub">AGENCIES</span></span></div></div></>;
 }
